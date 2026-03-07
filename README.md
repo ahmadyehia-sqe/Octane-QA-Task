@@ -88,7 +88,7 @@ octane-qa-task/
 
 ## Test Results
 
-### 72 Tests — 8 Scenarios — 100% Pass Rate
+### 73 Tests — 8 Scenarios — 98.6% Pass Rate
 
 | # | Scenario | Tests | Chrome | Electron | Mobile |
 |---|----------|-------|--------|----------|--------|
@@ -96,7 +96,7 @@ octane-qa-task/
 | 2 | Product Browsing & Search | 12 | ✅ | ✅ | ✅ |
 | 3 | Cart Management | 9 | ✅ | ✅ | ✅ |
 | 4 | Full Checkout Flow | 7 | ✅ | ✅ | ✅ |
-| 5 | Quote Request | 7 | ✅ | ✅ | ✅ |
+| 5 | Quote Request | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 |
 | 6 | Arabic/English Localization | 8 | ✅ | ✅ | ✅ |
 | 7 | Mobile Responsiveness | 12 | ✅ | ✅ | ✅ |
 | 8 | Order Tracking | 9 | ✅ | ✅ | ✅ |
@@ -109,7 +109,7 @@ See [docs/CRITICAL_ISSUES_REPORT.md](docs/CRITICAL_ISSUES_REPORT.md) for full de
 
 | # | Issue | Severity |
 |---|-------|----------|
-| 1 | No Arabic localization / language switcher | Critical |
+| 1 | Cart summary disappears after cancelling Save Quotation modal | High |
 | 2 | Registration form has no password field | Critical |
 | 3 | No dedicated RFQ / quote request feature | High |
 
@@ -117,7 +117,7 @@ See [docs/CRITICAL_ISSUES_REPORT.md](docs/CRITICAL_ISSUES_REPORT.md) for full de
 
 See [docs/PRIORITIZATION_RATIONALE.md](docs/PRIORITIZATION_RATIONALE.md) for the full risk-based analysis.
 
-**Go/No-Go:** ❌ NOT ready for production — BUG-001 (broken auth loop) and BUG-002 (missing Arabic localization) are launch blockers for the Saudi Arabia market.
+**Go/No-Go:** ❌ NOT ready for production — BUG-002 (broken auth loop) is a launch blocker, and BUG-001 (cart summary layout break) directly disrupts the checkout flow.
 
 ## Architecture Decisions
 
