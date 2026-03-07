@@ -117,7 +117,7 @@ See [docs/CRITICAL_ISSUES_REPORT.md](docs/CRITICAL_ISSUES_REPORT.md) for full de
 
 See [docs/PRIORITIZATION_RATIONALE.md](docs/PRIORITIZATION_RATIONALE.md) for the full risk-based analysis.
 
-**Go/No-Go:** ❌ NOT ready for production — BUG-001 (broken auth loop) and BUG-002 (missing Arabic localization) are launch blockers for the Qatar market.
+**Go/No-Go:** ❌ NOT ready for production — BUG-001 (broken auth loop) and BUG-002 (missing Arabic localization) are launch blockers for the Saudi Arabia market.
 
 ## Architecture Decisions
 
