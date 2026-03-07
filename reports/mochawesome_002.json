@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T21:29:47.455Z",
+    "end": "2026-03-06T21:30:07.580Z",
+    "duration": 20125,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "146fadc9-f39b-4f0d-b125-af528b9ac5c7",
+      "title": "",
+      "fullFile": "cypress/e2e/auth-extract.cy.js",
+      "file": "cypress/e2e/auth-extract.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e0637952-fd18-4f3b-b7c2-f83300e43be6",
+          "title": "Auth Pages DOM Extraction",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "extracts sign-in page elements",
+              "fullTitle": "Auth Pages DOM Extraction extracts sign-in page elements",
+              "timedOut": null,
+              "duration": 5247,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/sign-in');\ncy.wait(3000);\nconst results = [];\ncy.get('input, button, a, form, [class*=\"form\"], [class*=\"auth\"]').then($els => {\n  $els.each((i, el) => {\n    const $el = Cypress.$(el);\n    results.push({\n      tag: el.tagName.toLowerCase(),\n      cls: ($el.attr('class') || '').substring(0, 100),\n      id: $el.attr('id') || '',\n      name: $el.attr('name') || '',\n      type: $el.attr('type') || '',\n      placeholder: $el.attr('placeholder') || '',\n      href: $el.attr('href') || '',\n      text: ($el.text() || '').trim().substring(0, 80)\n    });\n  });\n}).then(() => {\n  cy.writeFile('cypress/fixtures/signin-dom.json', results);\n});\ncy.screenshot('signin-page');",
+              "err": {},
+              "uuid": "b9758cd9-4126-4856-aa38-31e0bc521cfd",
+              "parentUUID": "e0637952-fd18-4f3b-b7c2-f83300e43be6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "extracts sign-up page elements",
+              "fullTitle": "Auth Pages DOM Extraction extracts sign-up page elements",
+              "timedOut": null,
+              "duration": 2527,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/sign-in');\ncy.wait(2000);\n// Look for a sign-up / register link\ncy.get('body').then($body => {\n  const signupLinks = $body.find('a, button').filter((i, el) => {\n    const text = (Cypress.$(el).text() || '').toLowerCase();\n    return text.includes('sign up') || text.includes('register') || text.includes('create');\n  }).map((i, el) => ({\n    tag: el.tagName.toLowerCase(),\n    text: (Cypress.$(el).text() || '').trim(),\n    href: Cypress.$(el).attr('href') || '',\n    cls: Cypress.$(el).attr('class') || ''\n  })).get();\n  cy.writeFile('cypress/fixtures/signup-links.json', signupLinks);\n});\ncy.screenshot('signin-page-links');",
+              "err": {},
+              "uuid": "f65999c2-9a04-4136-8e6a-07c02b9ca258",
+              "parentUUID": "e0637952-fd18-4f3b-b7c2-f83300e43be6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "extracts cart page elements",
+              "fullTitle": "Auth Pages DOM Extraction extracts cart page elements",
+              "timedOut": null,
+              "duration": 5300,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/cart');\ncy.wait(3000);\nconst results = [];\ncy.get('body').then($body => {\n  // Check what the cart page shows when empty\n  const text = $body.text().substring(0, 500);\n  cy.writeFile('cypress/fixtures/cart-page.json', {\n    bodyText: text,\n    url: '/cart'\n  });\n});\ncy.screenshot('cart-page');",
+              "err": {},
+              "uuid": "ab1bb55c-c371-432c-bc67-f5928ff0072a",
+              "parentUUID": "e0637952-fd18-4f3b-b7c2-f83300e43be6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "extracts product details page elements",
+              "fullTitle": "Auth Pages DOM Extraction extracts product details page elements",
+              "timedOut": null,
+              "duration": 7007,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/product-details/21');\ncy.wait(3000);\nconst results = [];\ncy.get('input, button, [class*=\"cart\"], [class*=\"qty\"], [class*=\"quant\"]').then($els => {\n  $els.each((i, el) => {\n    const $el = Cypress.$(el);\n    results.push({\n      tag: el.tagName.toLowerCase(),\n      cls: ($el.attr('class') || '').substring(0, 100),\n      id: $el.attr('id') || '',\n      name: $el.attr('name') || '',\n      type: $el.attr('type') || '',\n      placeholder: $el.attr('placeholder') || '',\n      text: ($el.text() || '').trim().substring(0, 80)\n    });\n  });\n}).then(() => {\n  cy.writeFile('cypress/fixtures/product-details-dom.json', results);\n});\ncy.screenshot('product-details-page');",
+              "err": {},
+              "uuid": "1251ab9a-97c0-4d70-9ef9-8b03807234f2",
+              "parentUUID": "e0637952-fd18-4f3b-b7c2-f83300e43be6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b9758cd9-4126-4856-aa38-31e0bc521cfd",
+            "f65999c2-9a04-4136-8e6a-07c02b9ca258",
+            "ab1bb55c-c371-432c-bc67-f5928ff0072a",
+            "1251ab9a-97c0-4d70-9ef9-8b03807234f2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20081,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

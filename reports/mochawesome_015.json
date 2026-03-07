@@ -1,0 +1,419 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 12,
+    "passes": 11,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-03-06T21:46:39.359Z",
+    "end": "2026-03-06T21:47:40.889Z",
+    "duration": 61530,
+    "testsRegistered": 12,
+    "passPercent": 91.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "66f4ee72-0d48-45bf-a279-fdd6cae5ae3e",
+      "title": "",
+      "fullFile": "cypress/e2e/responsive/mobile-responsiveness.cy.js",
+      "file": "cypress/e2e/responsive/mobile-responsiveness.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5bcc3bb5-add0-4cfd-aef5-6ba21f714d7e",
+          "title": "Mobile Responsiveness",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "8fcc4014-b9a6-48a2-9e38-ddf9aeba9fb4",
+              "title": "Homepage on Mobile",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should render the homepage without horizontal overflow on mobile",
+                  "fullTitle": "Mobile Responsiveness Homepage on Mobile should render the homepage without horizontal overflow on mobile",
+                  "timedOut": null,
+                  "duration": 10625,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get('body').invoke('prop', 'scrollWidth').then(scrollWidth => {\n  cy.window().invoke('innerWidth').then(innerWidth => {\n    if (scrollWidth > innerWidth) {\n      cy.log(`ISSUE: Horizontal overflow detected — scrollWidth (${scrollWidth}) > viewportWidth (${innerWidth})`);\n    }\n    expect(scrollWidth).to.be.lte(innerWidth + 5); // 5px tolerance\n  });\n});\ncy.evidenceScreenshot('mobile-homepage-no-overflow');",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 10000ms: `cy.invoke()` errored because the property: `innerWidth` returned a `number` value instead of a function. `cy.invoke()` can only be used on properties that return callable functions.\n\n`cy.invoke()` waited for the specified property `innerWidth` to return a function, but it never did.\n\nIf you want to assert on the property's value, then switch to use `cy.its()` and add an assertion such as:\n\n`cy.wrap({ foo: 'bar' }).its('foo').should('eq', 'bar')`\n\nhttps://on.cypress.io/invoke",
+                    "estack": "CypressError: Timed out retrying after 10000ms: `cy.invoke()` errored because the property: `innerWidth` returned a `number` value instead of a function. `cy.invoke()` can only be used on properties that return callable functions.\n\n`cy.invoke()` waited for the specified property `innerWidth` to return a function, but it never did.\n\nIf you want to assert on the property's value, then switch to use `cy.its()` and add an assertion such as:\n\n`cy.wrap({ foo: 'bar' }).its('foo').should('eq', 'bar')`\n\nhttps://on.cypress.io/invoke\n    at <unknown> (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:122978:70)\n    at Object.subjectFn (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:152144:16)\n    at $Cy.verifyUpcomingAssertions (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:151472:31)\n    at onRetry (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:152135:15)\n    at tryCatcher (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:152022:68)\n    at <unknown> (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:151963:14)\n    at tryCatcher (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack://octane-qa-task/./cypress/e2e/responsive/mobile-responsiveness.cy.js:15:20)\n    at getRet (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:122806:20)\n    at tryCatcher (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:122817:66)\n    at Context.then (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:123068:21)\n    at wrapped (https://uat-ostore.vercel.app/__cypress/runner/cypress_runner.js:146326:19)",
+                    "diff": null
+                  },
+                  "uuid": "63ec9baa-e65f-48a3-9b7c-4070aadb1ca1",
+                  "parentUUID": "8fcc4014-b9a6-48a2-9e38-ddf9aeba9fb4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display the navigation bar on mobile",
+                  "fullTitle": "Mobile Responsiveness Homepage on Mobile should display the navigation bar on mobile",
+                  "timedOut": null,
+                  "duration": 1927,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get('.navigation-Bar').should('be.visible');\ncy.evidenceScreenshot('mobile-nav-visible');",
+                  "err": {},
+                  "uuid": "ec267753-174a-4479-814b-f20fcbfd931e",
+                  "parentUUID": "8fcc4014-b9a6-48a2-9e38-ddf9aeba9fb4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display the Log In and Sign Up buttons on mobile",
+                  "fullTitle": "Mobile Responsiveness Homepage on Mobile should display the Log In and Sign Up buttons on mobile",
+                  "timedOut": null,
+                  "duration": 1663,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get(SELECTORS.nav.loginLink).should('be.visible');\ncy.get(SELECTORS.nav.signupBtn).should('be.visible');\ncy.evidenceScreenshot('mobile-auth-buttons');",
+                  "err": {},
+                  "uuid": "a38d03fd-3397-482f-b99a-038946050899",
+                  "parentUUID": "8fcc4014-b9a6-48a2-9e38-ddf9aeba9fb4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display product cards stacked vertically on mobile",
+                  "fullTitle": "Mobile Responsiveness Homepage on Mobile should display product cards stacked vertically on mobile",
+                  "timedOut": null,
+                  "duration": 7517,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.wait(2000);\ncy.get(SELECTORS.products.card).should('have.length.greaterThan', 0);\ncy.evidenceScreenshot('mobile-product-cards');",
+                  "err": {},
+                  "uuid": "cc18d5d2-e60b-48be-b8b5-756eb9481e97",
+                  "parentUUID": "8fcc4014-b9a6-48a2-9e38-ddf9aeba9fb4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display the search bar on mobile",
+                  "fullTitle": "Mobile Responsiveness Homepage on Mobile should display the search bar on mobile",
+                  "timedOut": null,
+                  "duration": 2237,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get(SELECTORS.nav.searchInput).should('exist');\ncy.evidenceScreenshot('mobile-search-bar');",
+                  "err": {},
+                  "uuid": "e643d4e6-43b7-4bab-b316-bf5df79c1fdf",
+                  "parentUUID": "8fcc4014-b9a6-48a2-9e38-ddf9aeba9fb4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ec267753-174a-4479-814b-f20fcbfd931e",
+                "a38d03fd-3397-482f-b99a-038946050899",
+                "cc18d5d2-e60b-48be-b8b5-756eb9481e97",
+                "e643d4e6-43b7-4bab-b316-bf5df79c1fdf"
+              ],
+              "failures": [
+                "63ec9baa-e65f-48a3-9b7c-4070aadb1ca1"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 23969,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "da5d9825-0d72-4fc3-b738-757198496750",
+              "title": "Category Navigation on Mobile",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display category links on mobile viewport",
+                  "fullTitle": "Mobile Responsiveness Category Navigation on Mobile should display category links on mobile viewport",
+                  "timedOut": null,
+                  "duration": 2549,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get(SELECTORS.nav.categoryLinks).should('have.length.greaterThan', 0);\ncy.evidenceScreenshot('mobile-category-links');",
+                  "err": {},
+                  "uuid": "385f8b3a-79b2-445a-99df-be3b745ebd68",
+                  "parentUUID": "da5d9825-0d72-4fc3-b738-757198496750",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should navigate to product category on mobile tap",
+                  "fullTitle": "Mobile Responsiveness Category Navigation on Mobile should navigate to product category on mobile tap",
+                  "timedOut": null,
+                  "duration": 1477,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get(SELECTORS.nav.categoryLinks).contains('Tires').click({\n  force: true\n});\ncy.url().should('include', '/category/Tires');\ncy.evidenceScreenshot('mobile-category-navigation');",
+                  "err": {},
+                  "uuid": "14684469-fe3d-4c97-b3ee-548d5306d8e4",
+                  "parentUUID": "da5d9825-0d72-4fc3-b738-757198496750",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "385f8b3a-79b2-445a-99df-be3b745ebd68",
+                "14684469-fe3d-4c97-b3ee-548d5306d8e4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4026,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "05429f38-9945-4762-85c0-89f5857636e4",
+              "title": "Product Interaction on Mobile",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should show Add to Cart buttons on mobile product cards",
+                  "fullTitle": "Mobile Responsiveness Product Interaction on Mobile should show Add to Cart buttons on mobile product cards",
+                  "timedOut": null,
+                  "duration": 7598,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.wait(2000);\ncy.get(SELECTORS.products.addToCart).first().should('be.visible');\ncy.evidenceScreenshot('mobile-add-to-cart-btn');",
+                  "err": {},
+                  "uuid": "3bb9b5b8-176c-4dc4-a00a-a13001a8348d",
+                  "parentUUID": "05429f38-9945-4762-85c0-89f5857636e4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should allow tapping Add to Cart on mobile",
+                  "fullTitle": "Mobile Responsiveness Product Interaction on Mobile should allow tapping Add to Cart on mobile",
+                  "timedOut": null,
+                  "duration": 8413,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.wait(2000);\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.evidenceScreenshot('mobile-tap-add-to-cart');",
+                  "err": {},
+                  "uuid": "9815655f-51e0-43bc-a60d-4ec444a262e7",
+                  "parentUUID": "05429f38-9945-4762-85c0-89f5857636e4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should open product detail page on mobile",
+                  "fullTitle": "Mobile Responsiveness Product Interaction on Mobile should open product detail page on mobile",
+                  "timedOut": null,
+                  "duration": 3299,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.wait(2000);\ncy.get(SELECTORS.products.cardLink).first().click({\n  force: true\n});\ncy.url().should('include', '/product-details/');\ncy.evidenceScreenshot('mobile-product-detail');",
+                  "err": {},
+                  "uuid": "378cb61e-e777-4c23-b103-b2cc355c5d3a",
+                  "parentUUID": "05429f38-9945-4762-85c0-89f5857636e4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3bb9b5b8-176c-4dc4-a00a-a13001a8348d",
+                "9815655f-51e0-43bc-a60d-4ec444a262e7",
+                "378cb61e-e777-4c23-b103-b2cc355c5d3a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 19310,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "3bcd6b7c-f3ea-4047-89df-39f5512ebb2a",
+              "title": "Cart Page on Mobile",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should render cart page correctly on mobile",
+                  "fullTitle": "Mobile Responsiveness Cart Page on Mobile should render cart page correctly on mobile",
+                  "timedOut": null,
+                  "duration": 1141,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/cart');\ncy.get('.navigation-Bar').should('be.visible');\ncy.get('body').should('contain.text', 'cart');\ncy.evidenceScreenshot('mobile-cart-page');",
+                  "err": {},
+                  "uuid": "8ffa4feb-9d71-4420-ab51-d568307a685d",
+                  "parentUUID": "3bcd6b7c-f3ea-4047-89df-39f5512ebb2a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "8ffa4feb-9d71-4420-ab51-d568307a685d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1141,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "80e3b127-fd5c-4b22-b5fa-a5ae1dff5116",
+              "title": "Sign-in Page on Mobile",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should render the sign-in form correctly on mobile",
+                  "fullTitle": "Mobile Responsiveness Sign-in Page on Mobile should render the sign-in form correctly on mobile",
+                  "timedOut": null,
+                  "duration": 908,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/sign-in');\ncy.get(SELECTORS.auth.emailInput).should('be.visible');\ncy.get(SELECTORS.auth.passwordInput).should('be.visible');\ncy.get(SELECTORS.auth.loginBtn).should('be.visible');\ncy.evidenceScreenshot('mobile-sign-in-form');",
+                  "err": {},
+                  "uuid": "755e527e-cd95-4f6b-b6d5-33322165b3a8",
+                  "parentUUID": "80e3b127-fd5c-4b22-b5fa-a5ae1dff5116",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "755e527e-cd95-4f6b-b6d5-33322165b3a8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 908,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

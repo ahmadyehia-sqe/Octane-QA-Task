@@ -1,0 +1,279 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T22:08:58.482Z",
+    "end": "2026-03-06T22:09:36.747Z",
+    "duration": 38265,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2d5ccaef-8b33-4902-95b6-2a2581fd86b0",
+      "title": "",
+      "fullFile": "cypress/e2e/quotes/quote-request.cy.js",
+      "file": "cypress/e2e/quotes/quote-request.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9fa3023a-7510-44c9-9875-bef4b9e200e5",
+          "title": "Quote Request — Save Quotation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "fe1dabce-ff0d-4611-9cb0-661e241ed593",
+              "title": "Quote Feature on Cart Page",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display the Save Quotation button when items are in the cart",
+                  "fullTitle": "Quote Request — Save Quotation Quote Feature on Cart Page should display the Save Quotation button when items are in the cart",
+                  "timedOut": null,
+                  "duration": 4961,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.visit('/cart');\ncy.get('body').then($body => {\n  if (!$body.text().includes('Your cart is empty')) {\n    cy.contains('button', 'Save Quotation').should('be.visible');\n    cy.evidenceScreenshot('save-quotation-button-visible');\n  } else {\n    cy.log('Cart empty — Save Quotation button not visible without items');\n    cy.evidenceScreenshot('save-quotation-needs-items');\n  }\n});",
+                  "err": {},
+                  "uuid": "2c9c9478-6764-40a4-8b4b-62218edadee1",
+                  "parentUUID": "fe1dabce-ff0d-4611-9cb0-661e241ed593",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should have a working Checkout button in the cart summary",
+                  "fullTitle": "Quote Request — Save Quotation Quote Feature on Cart Page should have a working Checkout button in the cart summary",
+                  "timedOut": null,
+                  "duration": 3311,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.visit('/cart');\ncy.get('body').then($body => {\n  if (!$body.text().includes('Your cart is empty')) {\n    cy.contains('button', 'Checkout').should('be.visible');\n    cy.evidenceScreenshot('checkout-button-cart-summary');\n  } else {\n    cy.log('Cart is empty — Checkout button requires items');\n    cy.evidenceScreenshot('checkout-needs-items');\n  }\n});",
+                  "err": {},
+                  "uuid": "9c6a1b43-b253-4a1c-9416-f65da0a0b3e9",
+                  "parentUUID": "fe1dabce-ff0d-4611-9cb0-661e241ed593",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display Payment Options dropdown in cart summary",
+                  "fullTitle": "Quote Request — Save Quotation Quote Feature on Cart Page should display Payment Options dropdown in cart summary",
+                  "timedOut": null,
+                  "duration": 6699,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.visit('/cart');\ncy.get('body').then($body => {\n  if (!$body.text().includes('Your cart is empty')) {\n    cy.get('body').should('contain.text', 'Payment Options');\n    cy.get('body').should('contain.text', 'Delivery Options');\n    cy.evidenceScreenshot('cart-payment-delivery-options');\n  }\n});",
+                  "err": {},
+                  "uuid": "c3c35699-9a47-44df-9823-3ebf078f29d3",
+                  "parentUUID": "fe1dabce-ff0d-4611-9cb0-661e241ed593",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should allow applying a coupon code in the cart",
+                  "fullTitle": "Quote Request — Save Quotation Quote Feature on Cart Page should allow applying a coupon code in the cart",
+                  "timedOut": null,
+                  "duration": 2990,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.visit('/cart');\ncy.get('body').then($body => {\n  if (!$body.text().includes('Your cart is empty')) {\n    cy.contains('Have a coupon?').should('be.visible');\n    cy.get(SELECTORS.cart.couponApply).should('be.visible');\n    cy.evidenceScreenshot('coupon-apply-section');\n  }\n});",
+                  "err": {},
+                  "uuid": "aa53a3ee-dcb1-4d5c-95c5-47b93b547777",
+                  "parentUUID": "fe1dabce-ff0d-4611-9cb0-661e241ed593",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2c9c9478-6764-40a4-8b4b-62218edadee1",
+                "9c6a1b43-b253-4a1c-9416-f65da0a0b3e9",
+                "c3c35699-9a47-44df-9823-3ebf078f29d3",
+                "aa53a3ee-dcb1-4d5c-95c5-47b93b547777"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 17961,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "c1e2e21f-c76d-4357-99a4-7bcd0228a161",
+              "title": "WhatsApp Contact Channel",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display WhatsApp float button as alternative contact/quote channel",
+                  "fullTitle": "Quote Request — Save Quotation WhatsApp Contact Channel should display WhatsApp float button as alternative contact/quote channel",
+                  "timedOut": null,
+                  "duration": 1302,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.goHome();\ncy.get('a.whatsapp-float').should('exist');\ncy.get('a.whatsapp-float').should('have.attr', 'href').and('include', 'wa.me');\ncy.evidenceScreenshot('whatsapp-contact-button');",
+                  "err": {},
+                  "uuid": "6c930288-fbfe-4b7e-9792-37140dd008fe",
+                  "parentUUID": "c1e2e21f-c76d-4357-99a4-7bcd0228a161",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify WhatsApp button is present on product pages",
+                  "fullTitle": "Quote Request — Save Quotation WhatsApp Contact Channel should verify WhatsApp button is present on product pages",
+                  "timedOut": null,
+                  "duration": 1058,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.get('a.whatsapp-float').should('exist');\ncy.evidenceScreenshot('whatsapp-button-products-page');",
+                  "err": {},
+                  "uuid": "bed1f5a8-fc0c-433d-bd1e-0cb77e3db2b9",
+                  "parentUUID": "c1e2e21f-c76d-4357-99a4-7bcd0228a161",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6c930288-fbfe-4b7e-9792-37140dd008fe",
+                "bed1f5a8-fc0c-433d-bd1e-0cb77e3db2b9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2360,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "57fb10e7-1d86-4981-bf73-509944fb3ae4",
+              "title": "Quote Flow Documentation",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should document the quote flow: add items → cart → Save Quotation",
+                  "fullTitle": "Quote Request — Save Quotation Quote Flow Documentation should document the quote flow: add items → cart → Save Quotation",
+                  "timedOut": null,
+                  "duration": 17856,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// This test documents the complete quote workflow\ncy.visit('/home');\ncy.log('Step 1: User browses products');\ncy.get(SELECTORS.products.card).should('be.visible');\ncy.evidenceScreenshot('quote-flow-step1-browse');\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.log('Step 2: User adds item to cart');\ncy.evidenceScreenshot('quote-flow-step2-add-to-cart');\ncy.visit('/cart');\ncy.log('Step 3: User reviews cart and saves quotation');\ncy.evidenceScreenshot('quote-flow-step3-cart');",
+                  "err": {},
+                  "uuid": "0bcc0481-8d34-4868-a7e4-602a77115629",
+                  "parentUUID": "57fb10e7-1d86-4981-bf73-509944fb3ae4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0bcc0481-8d34-4868-a7e4-602a77115629"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 17856,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

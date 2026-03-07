@@ -1,0 +1,13 @@
+{
+  "validOrder": {
+    "deliveryAddress": "123 Fleet Street, Doha, Qatar",
+    "notes": "Deliver to warehouse gate B",
+    "contactPhone": "+97412345678"
+  },
+  "quoteRequest": {
+    "products": ["Engine Oil 5W-30", "Premium Tires"],
+    "quantity": 50,
+    "notes": "Bulk order for Q2 fleet maintenance",
+    "urgency": "high"
+  }
+}

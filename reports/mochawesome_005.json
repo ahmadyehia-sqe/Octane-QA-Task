@@ -1,0 +1,283 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 8,
+    "passes": 7,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-03-06T21:39:02.813Z",
+    "end": "2026-03-06T21:39:44.912Z",
+    "duration": 42099,
+    "testsRegistered": 8,
+    "passPercent": 87.5,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6dbae4b1-a110-4f7f-9816-1e206cf23b6e",
+      "title": "",
+      "fullFile": "cypress/e2e/auth/registration-login.cy.js",
+      "file": "cypress/e2e/auth/registration-login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "711fe3b1-81b0-40f6-8a47-910aa5c1c54d",
+          "title": "Authentication — Registration & Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "791af117-2932-4d1b-a688-69e4d16c71cd",
+              "title": "User Registration Modal",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should open the Sign Up modal when clicking Sign Up in nav",
+                  "fullTitle": "Authentication — Registration & Login User Registration Modal should open the Sign Up modal when clicking Sign Up in nav",
+                  "timedOut": null,
+                  "duration": 4351,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.nav.signupBtn).should('be.visible').click();\ncy.get(SELECTORS.auth.modal).should('be.visible');\ncy.get(SELECTORS.auth.fullNameInput).should('be.visible');\ncy.get(SELECTORS.auth.regEmailInput).should('be.visible');\ncy.get(SELECTORS.auth.phoneInput).should('be.visible');\ncy.evidenceScreenshot('registration-modal-open');",
+                  "err": {},
+                  "uuid": "39044c79-1234-4107-baa5-1bb52fc03538",
+                  "parentUUID": "791af117-2932-4d1b-a688-69e4d16c71cd",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should show validation errors when submitting empty registration form",
+                  "fullTitle": "Authentication — Registration & Login User Registration Modal should show validation errors when submitting empty registration form",
+                  "timedOut": null,
+                  "duration": 1843,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.nav.signupBtn).click();\ncy.get(SELECTORS.auth.modal).should('be.visible');\ncy.get(SELECTORS.auth.registerSubmit).click();\n// Modal should stay open if validation fails\ncy.get(SELECTORS.auth.modal).should('be.visible');\ncy.evidenceScreenshot('registration-empty-form-validation');",
+                  "err": {},
+                  "uuid": "0bd87d58-8bdf-4859-a15f-0ed00d352b29",
+                  "parentUUID": "791af117-2932-4d1b-a688-69e4d16c71cd",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should close the Sign Up modal when clicking the close button",
+                  "fullTitle": "Authentication — Registration & Login User Registration Modal should close the Sign Up modal when clicking the close button",
+                  "timedOut": null,
+                  "duration": 11010,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.nav.signupBtn).click();\ncy.get(SELECTORS.auth.modal).should('be.visible');\ncy.get(SELECTORS.auth.modalClose).click();\ncy.get(SELECTORS.auth.modal).should('not.exist');\ncy.evidenceScreenshot('registration-modal-closed');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 10000ms: Expected <div.el-dialog.signup-dialog> not to exist in the DOM, but it was continuously found.",
+                    "estack": "AssertionError: Timed out retrying after 10000ms: Expected <div.el-dialog.signup-dialog> not to exist in the DOM, but it was continuously found.\n    at Context.eval (webpack://octane-qa-task/./cypress/e2e/auth/registration-login.cy.js:34:35)",
+                    "diff": null
+                  },
+                  "uuid": "21e9a794-bdd8-4bd2-8d74-a2dc08c624a9",
+                  "parentUUID": "791af117-2932-4d1b-a688-69e4d16c71cd",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should allow submitting the Sign Up form with valid user details",
+                  "fullTitle": "Authentication — Registration & Login User Registration Modal should allow submitting the Sign Up form with valid user details",
+                  "timedOut": null,
+                  "duration": 4665,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture('users').then(users => {\n  cy.interceptAPI('POST', '**', 'signupRequest');\n  cy.get(SELECTORS.nav.signupBtn).click();\n  cy.get(SELECTORS.auth.modal).should('be.visible');\n  cy.get(SELECTORS.auth.fullNameInput).type(users.newUser.name);\n  cy.get(SELECTORS.auth.companyInput).type(users.newUser.company);\n  cy.get(SELECTORS.auth.regEmailInput).type(users.newUser.email);\n  cy.get(SELECTORS.auth.phoneInput).type('01098765432');\n  cy.get(SELECTORS.auth.registerSubmit).click();\n  cy.evidenceScreenshot('registration-submitted');\n});",
+                  "err": {},
+                  "uuid": "ad86f9d5-b406-4351-a5f6-20f8113e72a2",
+                  "parentUUID": "791af117-2932-4d1b-a688-69e4d16c71cd",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "39044c79-1234-4107-baa5-1bb52fc03538",
+                "0bd87d58-8bdf-4859-a15f-0ed00d352b29",
+                "ad86f9d5-b406-4351-a5f6-20f8113e72a2"
+              ],
+              "failures": [
+                "21e9a794-bdd8-4bd2-8d74-a2dc08c624a9"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 21869,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "540addff-dac9-4435-b865-9b7ab8b16151",
+              "title": "User Login",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display the sign-in form with all required fields",
+                  "fullTitle": "Authentication — Registration & Login User Login should display the sign-in form with all required fields",
+                  "timedOut": null,
+                  "duration": 1844,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/sign-in');\ncy.get(SELECTORS.auth.emailInput).should('be.visible');\ncy.get(SELECTORS.auth.passwordInput).should('be.visible');\ncy.get(SELECTORS.auth.loginBtn).should('be.visible').and('contain', 'Log in');\ncy.get(SELECTORS.auth.continueAsGuest).should('be.visible');\ncy.evidenceScreenshot('login-form-loaded');",
+                  "err": {},
+                  "uuid": "1be7e9fd-c754-4b89-8898-d0105569666c",
+                  "parentUUID": "540addff-dac9-4435-b865-9b7ab8b16151",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should show error for invalid credentials",
+                  "fullTitle": "Authentication — Registration & Login User Login should show error for invalid credentials",
+                  "timedOut": null,
+                  "duration": 2970,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture('users').then(users => {\n  cy.interceptAPI('POST', '**/login', 'loginRequest');\n  cy.visit('/sign-in');\n  cy.get(SELECTORS.auth.emailInput).type(users.invalidUser.email);\n  cy.get(SELECTORS.auth.passwordInput).type(users.invalidUser.password);\n  cy.get(SELECTORS.auth.loginBtn).click();\n  cy.url().should('include', '/sign-in');\n  cy.evidenceScreenshot('login-invalid-credentials');\n});",
+                  "err": {},
+                  "uuid": "286538dc-a019-4d3f-b4c4-e9a34191093e",
+                  "parentUUID": "540addff-dac9-4435-b865-9b7ab8b16151",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should navigate to sign-in page from the Log In nav link",
+                  "fullTitle": "Authentication — Registration & Login User Login should navigate to sign-in page from the Log In nav link",
+                  "timedOut": null,
+                  "duration": 1341,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.nav.loginLink).should('be.visible').click();\ncy.url().should('include', '/sign-in');\ncy.evidenceScreenshot('login-nav-link');",
+                  "err": {},
+                  "uuid": "594ba0b8-82e4-4427-b452-a303536133af",
+                  "parentUUID": "540addff-dac9-4435-b865-9b7ab8b16151",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should allow guest browsing via Continue as Guest link",
+                  "fullTitle": "Authentication — Registration & Login User Login should allow guest browsing via Continue as Guest link",
+                  "timedOut": null,
+                  "duration": 3009,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/sign-in');\ncy.get(SELECTORS.auth.continueAsGuest).should('be.visible').click();\ncy.url().should('include', '/home');\ncy.evidenceScreenshot('continue-as-guest');",
+                  "err": {},
+                  "uuid": "366a1a72-d513-4262-a560-158568da0931",
+                  "parentUUID": "540addff-dac9-4435-b865-9b7ab8b16151",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1be7e9fd-c754-4b89-8898-d0105569666c",
+                "286538dc-a019-4d3f-b4c4-e9a34191093e",
+                "594ba0b8-82e4-4427-b452-a303536133af",
+                "366a1a72-d513-4262-a560-158568da0931"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9164,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-03-06T21:23:59.269Z",
+    "end": "2026-03-06T21:25:22.633Z",
+    "duration": 83364,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333334,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "01ef4190-aa58-4a87-afc9-9c3f3fd6e144",
+      "title": "",
+      "fullFile": "cypress/e2e/exploration.cy.js",
+      "file": "cypress/e2e/exploration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "da76b1df-c560-461a-867d-ea97313586a6",
+          "title": "Site Exploration — DELETE AFTER",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "explores the homepage structure",
+              "fullTitle": "Site Exploration — DELETE AFTER explores the homepage structure",
+              "timedOut": null,
+              "duration": 10013,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/home');\ncy.wait(3000);\n// Log all visible buttons\ncy.get('button').each($btn => {\n  cy.log(`Button: \"${$btn.text().trim()}\" | Classes: ${$btn.attr('class')}`);\n});\n// Log all links\ncy.get('a').each($link => {\n  cy.log(`Link: \"${$link.text().trim()}\" | Href: ${$link.attr('href')}`);\n});\n// Log all inputs\ncy.get('input, textarea, select').each($input => {\n  cy.log(`Input: name=\"${$input.attr('name')}\" | id=\"${$input.attr('id')}\" | type=\"${$input.attr('type')}\"`);\n});\ncy.screenshot('homepage-structure');",
+              "err": {},
+              "uuid": "947e934a-ad04-48bf-ab93-ee8163cf54c6",
+              "parentUUID": "da76b1df-c560-461a-867d-ea97313586a6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "explores the navigation and categories",
+              "fullTitle": "Site Exploration — DELETE AFTER explores the navigation and categories",
+              "timedOut": null,
+              "duration": 11722,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/home');\ncy.wait(2000);\n// Log navigation items\ncy.get('nav, header').find('a, button').each($el => {\n  cy.log(`Nav element: \"${$el.text().trim()}\" | Tag: ${$el.prop('tagName')} | Href: ${$el.attr('href') || 'N/A'}`);\n});\ncy.screenshot('navigation-structure');",
+              "err": {},
+              "uuid": "9be3f324-7d7d-451a-9680-08d597c9c489",
+              "parentUUID": "da76b1df-c560-461a-867d-ea97313586a6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "explores login/register pages",
+              "fullTitle": "Site Exploration — DELETE AFTER explores login/register pages",
+              "timedOut": null,
+              "duration": 12474,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.wait(2000);\ncy.get('input, button, a').each($el => {\n  cy.log(`Element: ${$el.prop('tagName')} | name=\"${$el.attr('name')}\" | id=\"${$el.attr('id')}\" | text=\"${$el.text().trim()}\"`);\n});\ncy.screenshot('login-page-structure');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input, button, a`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input, button, a`, but never found it.\n    at Context.eval (webpack://octane-qa-task/./cypress/e2e/exploration.cy.js:34:7)",
+                "diff": null
+              },
+              "uuid": "1e1a7f25-905c-4f05-9a61-679a3f5950ae",
+              "parentUUID": "da76b1df-c560-461a-867d-ea97313586a6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "explores product catalog and cart",
+              "fullTitle": "Site Exploration — DELETE AFTER explores product catalog and cart",
+              "timedOut": null,
+              "duration": 15551,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/home');\ncy.wait(3000);\n// Try to find product cards\ncy.get('[class*=\"product\"], [class*=\"card\"], [class*=\"item\"]').each($el => {\n  cy.log(`Product element: classes=\"${$el.attr('class')}\" | text=\"${$el.text().trim().substring(0, 80)}\"`);\n});\ncy.screenshot('catalog-structure');",
+              "err": {},
+              "uuid": "9f95a8f0-eaf7-4388-addb-dcc788ee7745",
+              "parentUUID": "da76b1df-c560-461a-867d-ea97313586a6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "checks mobile responsiveness",
+              "fullTitle": "Site Exploration — DELETE AFTER checks mobile responsiveness",
+              "timedOut": null,
+              "duration": 16892,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('iphone-x');\ncy.visit('/home');\ncy.wait(3000);\ncy.screenshot('mobile-homepage');\n// Check for hamburger menu\ncy.get('[class*=\"menu\"], [class*=\"burger\"], [class*=\"toggle\"], [class*=\"drawer\"]').each($el => {\n  cy.log(`Mobile menu element: classes=\"${$el.attr('class')}\"`);\n});",
+              "err": {},
+              "uuid": "67f5bdc6-1c7d-4b15-8db4-59518c155436",
+              "parentUUID": "da76b1df-c560-461a-867d-ea97313586a6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "checks Arabic localization",
+              "fullTitle": "Site Exploration — DELETE AFTER checks Arabic localization",
+              "timedOut": null,
+              "duration": 4159,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/home');\ncy.wait(2000);\n// Look for language switcher\ncy.get('[class*=\"lang\"], [class*=\"locale\"], [class*=\"translate\"], button:contains(\"AR\"), button:contains(\"عربي\")').each($el => {\n  cy.log(`Language element: \"${$el.text().trim()}\" | classes=\"${$el.attr('class')}\"`);\n});\ncy.screenshot('language-switcher');",
+              "err": {},
+              "uuid": "fd293b78-d515-4dc3-a8b7-1c86662431c6",
+              "parentUUID": "da76b1df-c560-461a-867d-ea97313586a6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "947e934a-ad04-48bf-ab93-ee8163cf54c6",
+            "9be3f324-7d7d-451a-9680-08d597c9c489",
+            "9f95a8f0-eaf7-4388-addb-dcc788ee7745",
+            "67f5bdc6-1c7d-4b15-8db4-59518c155436",
+            "fd293b78-d515-4dc3-a8b7-1c86662431c6"
+          ],
+          "failures": [
+            "1e1a7f25-905c-4f05-9a61-679a3f5950ae"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 70811,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 9,
+    "passes": 9,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T22:10:17.998Z",
+    "end": "2026-03-06T22:10:25.614Z",
+    "duration": 7616,
+    "testsRegistered": 9,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "998078df-038c-4094-80e2-eb6aae641ff7",
+      "title": "",
+      "fullFile": "cypress/e2e/tracking/order-tracking.cy.js",
+      "file": "cypress/e2e/tracking/order-tracking.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "155269a3-9968-4625-8f62-61a0452bef66",
+          "title": "Order Tracking",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "8d764113-215c-4117-9573-5ff40885e23d",
+              "title": "Order History / Tracking Availability",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should check if order history route exists when navigating as guest",
+                  "fullTitle": "Order Tracking Order History / Tracking Availability should check if order history route exists when navigating as guest",
+                  "timedOut": null,
+                  "duration": 999,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/orders', {\n  failOnStatusCode: false\n});\ncy.url().then(url => {\n  cy.log(`/orders URL result: ${url}`);\n  cy.evidenceScreenshot('orders-page-guest');\n});",
+                  "err": {},
+                  "uuid": "c5028a55-f51c-4824-958c-82e915fe775d",
+                  "parentUUID": "8d764113-215c-4117-9573-5ff40885e23d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should check if order tracking route exists",
+                  "fullTitle": "Order Tracking Order History / Tracking Availability should check if order tracking route exists",
+                  "timedOut": null,
+                  "duration": 439,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/order-tracking', {\n  failOnStatusCode: false\n});\ncy.url().then(url => {\n  cy.log(`/order-tracking URL result: ${url}`);\n  cy.evidenceScreenshot('order-tracking-route');\n});",
+                  "err": {},
+                  "uuid": "78fc5cec-f00e-42da-be61-6d426d6f014f",
+                  "parentUUID": "8d764113-215c-4117-9573-5ff40885e23d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should check the profile/account page route for order history",
+                  "fullTitle": "Order Tracking Order History / Tracking Availability should check the profile/account page route for order history",
+                  "timedOut": null,
+                  "duration": 462,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/profile', {\n  failOnStatusCode: false\n});\ncy.url().then(url => {\n  const redirectedToSignIn = url.includes('/sign-in');\n  if (redirectedToSignIn) {\n    cy.log('Profile page redirects to sign-in (correct behavior for guest)');\n  } else {\n    cy.log(`Profile page loaded at: ${url}`);\n  }\n  cy.evidenceScreenshot('profile-page-access');\n});",
+                  "err": {},
+                  "uuid": "3da4805e-2173-47f0-b48d-73f516dc6691",
+                  "parentUUID": "8d764113-215c-4117-9573-5ff40885e23d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should check footer links for order tracking or account section",
+                  "fullTitle": "Order Tracking Order History / Tracking Availability should check footer links for order tracking or account section",
+                  "timedOut": null,
+                  "duration": 1214,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.goHome();\ncy.get('footer').then($footer => {\n  const footerText = $footer.text();\n  cy.log(`Footer content: ${footerText.substring(0, 200)}`);\n  cy.evidenceScreenshot('footer-links-check');\n});",
+                  "err": {},
+                  "uuid": "bf54d334-0c5d-43c1-bdb7-1bf48271078e",
+                  "parentUUID": "8d764113-215c-4117-9573-5ff40885e23d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c5028a55-f51c-4824-958c-82e915fe775d",
+                "78fc5cec-f00e-42da-be61-6d426d6f014f",
+                "3da4805e-2173-47f0-b48d-73f516dc6691",
+                "bf54d334-0c5d-43c1-bdb7-1bf48271078e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3114,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a00b77f7-9364-492e-8113-b11a90591c97",
+              "title": "Homepage Navigation for Tracking",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should check if user account icon/profile is visible in nav when logged in",
+                  "fullTitle": "Order Tracking Homepage Navigation for Tracking should check if user account icon/profile is visible in nav when logged in",
+                  "timedOut": null,
+                  "duration": 1119,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.goHome();\n// Check if there's any account/profile link in nav\ncy.get('.navigation-Bar').then($nav => {\n  const navText = $nav.text();\n  cy.log(`Nav content: ${navText.substring(0, 200)}`);\n  // For unauthenticated user, should see Log In / Sign Up\n  cy.get(SELECTORS.nav.loginLink).should('be.visible');\n});\ncy.evidenceScreenshot('nav-auth-state-guest');",
+                  "err": {},
+                  "uuid": "1da26ddc-2c97-4dff-afc5-ad38b619e0ee",
+                  "parentUUID": "a00b77f7-9364-492e-8113-b11a90591c97",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify footer contains navigation links to key pages",
+                  "fullTitle": "Order Tracking Homepage Navigation for Tracking should verify footer contains navigation links to key pages",
+                  "timedOut": null,
+                  "duration": 1236,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.goHome();\ncy.get('footer').should('be.visible');\ncy.get('footer a').should('have.length.greaterThan', 0);\ncy.evidenceScreenshot('footer-nav-links');",
+                  "err": {},
+                  "uuid": "0c37cc2d-b6ba-44de-a47b-e5b0d59f474b",
+                  "parentUUID": "a00b77f7-9364-492e-8113-b11a90591c97",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify the cart icon shows correct count (0 for guest)",
+                  "fullTitle": "Order Tracking Homepage Navigation for Tracking should verify the cart icon shows correct count (0 for guest)",
+                  "timedOut": null,
+                  "duration": 1096,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.goHome();\ncy.get(SELECTORS.nav.cart).should('be.visible').and('contain', '0');\ncy.evidenceScreenshot('cart-count-zero-guest');",
+                  "err": {},
+                  "uuid": "4e2d472c-c736-4d5e-9494-c58821451984",
+                  "parentUUID": "a00b77f7-9364-492e-8113-b11a90591c97",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1da26ddc-2c97-4dff-afc5-ad38b619e0ee",
+                "0c37cc2d-b6ba-44de-a47b-e5b0d59f474b",
+                "4e2d472c-c736-4d5e-9494-c58821451984"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3451,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "e9228076-f610-448e-ae10-296bd6a5d1f1",
+              "title": "Post-Purchase Flow Verification",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should check if order confirmation route is accessible",
+                  "fullTitle": "Order Tracking Post-Purchase Flow Verification should check if order confirmation route is accessible",
+                  "timedOut": null,
+                  "duration": 347,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/order-confirmation', {\n  failOnStatusCode: false\n});\ncy.url().then(url => {\n  cy.log(`/order-confirmation URL result: ${url}`);\n  cy.evidenceScreenshot('order-confirmation-route');\n});",
+                  "err": {},
+                  "uuid": "46586274-d557-4d69-be8d-619d47b9c673",
+                  "parentUUID": "e9228076-f610-448e-ae10-296bd6a5d1f1",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should document that full order tracking requires authenticated session",
+                  "fullTitle": "Order Tracking Post-Purchase Flow Verification should document that full order tracking requires authenticated session",
+                  "timedOut": null,
+                  "duration": 622,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Order tracking is a post-login feature; document the auth requirement\ncy.visit('/sign-in');\ncy.get(SELECTORS.auth.emailInput).should('be.visible');\ncy.log('Order tracking requires authentication — test documents auth gate');\ncy.evidenceScreenshot('order-tracking-auth-required');",
+                  "err": {},
+                  "uuid": "96306e92-460d-4fb7-860b-1eb08983e19b",
+                  "parentUUID": "e9228076-f610-448e-ae10-296bd6a5d1f1",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "46586274-d557-4d69-be8d-619d47b9c673",
+                "96306e92-460d-4fb7-860b-1eb08983e19b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 969,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

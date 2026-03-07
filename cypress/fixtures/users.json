@@ -1,0 +1,20 @@
+{
+  "validUser": {
+    "name": "Fleet Manager Test",
+    "email": "fleetmanager.test@example.com",
+    "phone": "+97412345678",
+    "password": "TestPass123!",
+    "company": "Test Fleet Co."
+  },
+  "newUser": {
+    "name": "New Fleet User",
+    "email": "new.fleet.user@example.com",
+    "phone": "+97498765432",
+    "password": "NewPass456!",
+    "company": "New Fleet Corp."
+  },
+  "invalidUser": {
+    "email": "invalid@nonexistent.com",
+    "password": "wrongpassword"
+  }
+}

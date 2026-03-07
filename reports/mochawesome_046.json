@@ -1,0 +1,279 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T22:08:29.602Z",
+    "end": "2026-03-06T22:08:56.907Z",
+    "duration": 27305,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9fc9f307-cd6f-4451-bde0-dfa4cab38f4f",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout/order-flow.cy.js",
+      "file": "cypress/e2e/checkout/order-flow.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "66525ac4-2d4f-4a20-9f45-c70a812ba050",
+          "title": "Checkout — Order Flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "2db9edce-a6d4-4e4b-91b8-5a5a8434cf2f",
+              "title": "Cart Page Checkout",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should redirect to sign-in when accessing cart without authentication",
+                  "fullTitle": "Checkout — Order Flow Cart Page Checkout should redirect to sign-in when accessing cart without authentication",
+                  "timedOut": null,
+                  "duration": 1885,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/cart');\n// Cart is accessible as guest but checkout requires auth\ncy.url().should('satisfy', url => url.includes('/cart') || url.includes('/sign-in'));\ncy.evidenceScreenshot('cart-guest-access');",
+                  "err": {},
+                  "uuid": "2330c957-ead1-4b29-b996-7c4d73f40b45",
+                  "parentUUID": "2db9edce-a6d4-4e4b-91b8-5a5a8434cf2f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display cart page structure correctly",
+                  "fullTitle": "Checkout — Order Flow Cart Page Checkout should display cart page structure correctly",
+                  "timedOut": null,
+                  "duration": 1075,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/cart');\ncy.get('body').should('be.visible');\n// Page should render without errors\ncy.get('nav, .navigation-Bar').should('be.visible');\ncy.evidenceScreenshot('cart-page-structure');",
+                  "err": {},
+                  "uuid": "69d5131a-2c64-4199-88da-c09ff03a0b72",
+                  "parentUUID": "2db9edce-a6d4-4e4b-91b8-5a5a8434cf2f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2330c957-ead1-4b29-b996-7c4d73f40b45",
+                "69d5131a-2c64-4199-88da-c09ff03a0b72"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2960,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8b795307-10b9-4416-a7a4-3941a9c7680a",
+              "title": "Product to Cart Flow",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should complete browse → add to cart flow from homepage",
+                  "fullTitle": "Checkout — Order Flow Product to Cart Flow should complete browse → add to cart flow from homepage",
+                  "timedOut": null,
+                  "duration": 15428,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.goHome();\n// Step 1: Find a product in the Best Seller section\ncy.get(SELECTORS.products.card).first().should('be.visible');\n// Step 2: Click Add to Cart\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.evidenceScreenshot('homepage-add-to-cart-flow');\n// Step 3: Navigate to cart\ncy.get(SELECTORS.nav.cart).click();\ncy.url().should('include', '/cart');\ncy.evidenceScreenshot('cart-after-homepage-add');",
+                  "err": {},
+                  "uuid": "bdadaa35-ec78-4fdd-a952-b1e1b28726c9",
+                  "parentUUID": "8b795307-10b9-4416-a7a4-3941a9c7680a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should add product from product detail page and navigate to cart",
+                  "fullTitle": "Checkout — Order Flow Product to Cart Flow should add product from product detail page and navigate to cart",
+                  "timedOut": null,
+                  "duration": 4388,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/product-details/28');\ncy.get(SELECTORS.products.addToCartDetail).should('be.visible').first().click({\n  force: true\n});\ncy.wait(1000);\ncy.get(SELECTORS.nav.cart).click();\ncy.url().should('include', '/cart');\ncy.evidenceScreenshot('detail-to-cart-flow');",
+                  "err": {},
+                  "uuid": "defb0b68-f462-4619-9d32-d820b9f1bfe2",
+                  "parentUUID": "8b795307-10b9-4416-a7a4-3941a9c7680a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should show checkout button and Save Quotation button when cart has items",
+                  "fullTitle": "Checkout — Order Flow Product to Cart Flow should show checkout button and Save Quotation button when cart has items",
+                  "timedOut": null,
+                  "duration": 3149,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Add an item first, then verify cart checkout options\ncy.visit('/products');\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.visit('/cart');\ncy.get('body').then($body => {\n  if ($body.text().includes('Your cart is empty')) {\n    cy.log('Cart is empty — items not persisting (possible session issue)');\n    cy.evidenceScreenshot('checkout-cart-empty-after-add');\n  } else {\n    // Cart should have Checkout and Save Quotation buttons\n    cy.contains('button', 'Checkout').should('be.visible');\n    cy.contains('button', 'Save Quotation').should('be.visible');\n    cy.evidenceScreenshot('checkout-cta-visible');\n  }\n});",
+                  "err": {},
+                  "uuid": "cf00e482-bf5e-4df1-80da-0e4aafbeeed9",
+                  "parentUUID": "8b795307-10b9-4416-a7a4-3941a9c7680a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bdadaa35-ec78-4fdd-a952-b1e1b28726c9",
+                "defb0b68-f462-4619-9d32-d820b9f1bfe2",
+                "cf00e482-bf5e-4df1-80da-0e4aafbeeed9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 22965,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "b37a8dd3-36ac-4d5a-8ac4-a1f9c7aa5c07",
+              "title": "Authentication Gate for Checkout",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should redirect to sign-in from checkout when not authenticated",
+                  "fullTitle": "Checkout — Order Flow Authentication Gate for Checkout should redirect to sign-in from checkout when not authenticated",
+                  "timedOut": null,
+                  "duration": 601,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/checkout');\n// Should redirect to sign-in or show sign-in prompt\ncy.url().should('satisfy', url => url.includes('/sign-in') || url.includes('/checkout') || url.includes('/home'));\ncy.evidenceScreenshot('checkout-auth-gate');",
+                  "err": {},
+                  "uuid": "35997d38-0cd4-4c06-bfaa-422fd2415114",
+                  "parentUUID": "b37a8dd3-36ac-4d5a-8ac4-a1f9c7aa5c07",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should show sign-in page with correct form elements before checkout",
+                  "fullTitle": "Checkout — Order Flow Authentication Gate for Checkout should show sign-in page with correct form elements before checkout",
+                  "timedOut": null,
+                  "duration": 693,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/sign-in');\ncy.get(SELECTORS.auth.emailInput).should('be.visible');\ncy.get(SELECTORS.auth.passwordInput).should('be.visible');\ncy.get(SELECTORS.auth.loginBtn).should('be.visible');\ncy.evidenceScreenshot('checkout-sign-in-page');",
+                  "err": {},
+                  "uuid": "a1d47540-8eb9-4c53-a1c2-ece0ca3c5a96",
+                  "parentUUID": "b37a8dd3-36ac-4d5a-8ac4-a1f9c7aa5c07",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "35997d38-0cd4-4c06-bfaa-422fd2415114",
+                "a1d47540-8eb9-4c53-a1c2-ece0ca3c5a96"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1294,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

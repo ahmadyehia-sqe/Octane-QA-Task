@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T21:42:43.908Z",
+    "end": "2026-03-06T21:42:57.374Z",
+    "duration": 13466,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2e62fb2e-3c3a-4225-8e86-ff49a7ee1cb5",
+      "title": "",
+      "fullFile": "cypress/e2e/cart-with-items.cy.js",
+      "file": "cypress/e2e/cart-with-items.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8a27a976-0ed6-48fc-853a-f311097756cb",
+          "title": "Cart with items",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "examines cart page with an item",
+              "fullTitle": "Cart with items examines cart page with an item",
+              "timedOut": null,
+              "duration": 13460,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/products');\ncy.wait(2000);\ncy.get('button.flying-btn.bg-dark-blue').first().click({\n  force: true\n});\ncy.wait(2000);\ncy.visit('/cart');\ncy.wait(2000);\ncy.screenshot('cart-with-item');\ncy.get('body').then($body => {\n  const buttons = $body.find('button, a').map((i, el) => ({\n    tag: el.tagName.toLowerCase(),\n    text: (Cypress.$(el).text() || '').trim().substring(0, 80),\n    cls: (Cypress.$(el).attr('class') || '').substring(0, 100),\n    href: Cypress.$(el).attr('href') || ''\n  })).get();\n  cy.writeFile('cypress/fixtures/cart-with-items-dom.json', buttons);\n});",
+              "err": {},
+              "uuid": "863d0ce9-f05e-4410-ad6c-a9e28a0feeee",
+              "parentUUID": "8a27a976-0ed6-48fc-853a-f311097756cb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "863d0ce9-f05e-4410-ad6c-a9e28a0feeee"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13460,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

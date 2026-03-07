@@ -1,0 +1,14 @@
+{
+  "categories": ["Oils", "Tires", "Batteries"],
+  "searchTerms": {
+    "valid": "oil",
+    "noResults": "xyznonexistent123",
+    "arabic": "زيت"
+  },
+  "quantities": {
+    "single": 1,
+    "bulk": 10,
+    "invalid": -1,
+    "zero": 0
+  }
+}

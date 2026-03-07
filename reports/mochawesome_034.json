@@ -1,0 +1,298 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T22:01:34.453Z",
+    "end": "2026-03-06T22:01:46.288Z",
+    "duration": 11835,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ed86b9f-bcc5-43b6-947b-e6b69a42ea50",
+      "title": "",
+      "fullFile": "cypress/e2e/localization/language-switching.cy.js",
+      "file": "cypress/e2e/localization/language-switching.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5258b13d-d22d-4f67-b703-698215873c4b",
+          "title": "Localization — Language Switching",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "017cbe23-d9c3-486e-a364-a120ebb5babe",
+              "title": "Language Switcher UI",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify if a language switcher element exists in the UI",
+                  "fullTitle": "Localization — Language Switching Language Switcher UI should verify if a language switcher element exists in the UI",
+                  "timedOut": null,
+                  "duration": 1277,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('body').then($body => {\n  const langSelectors = ['[class*=\"lang\"]', '[class*=\"locale\"]', '[class*=\"translate\"]', 'button:contains(\"AR\")', 'button:contains(\"EN\")', 'button:contains(\"عربي\")', 'button:contains(\"Arabic\")', 'select[class*=\"lang\"]', 'a:contains(\"AR\")'];\n  let found = false;\n  langSelectors.forEach(sel => {\n    try {\n      if ($body.find(sel).length > 0) found = true;\n    } catch (e) {/* selector may be invalid */}\n  });\n  cy.log(`Language switcher found: ${found}`);\n  if (!found) {\n    cy.log('CRITICAL ISSUE: No language switcher found — Arabic localization missing on a Middle East platform');\n  }\n  cy.evidenceScreenshot('language-switcher-check');\n});",
+                  "err": {},
+                  "uuid": "885a5247-2696-4726-a3f2-b7bdc1dc9e4a",
+                  "parentUUID": "017cbe23-d9c3-486e-a364-a120ebb5babe",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify page direction (LTR by default) on the homepage",
+                  "fullTitle": "Localization — Language Switching Language Switcher UI should verify page direction (LTR by default) on the homepage",
+                  "timedOut": null,
+                  "duration": 711,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('html').invoke('attr', 'dir').then(dir => {\n  cy.log(`Current page direction: ${dir || 'not set (default LTR)'}`);\n  // English (default) should be LTR or unset\n  expect(dir === 'ltr' || !dir || dir === undefined).to.be.true;\n});\ncy.evidenceScreenshot('default-page-direction');",
+                  "err": {},
+                  "uuid": "857c2d1b-a588-4240-a676-9189bf38695d",
+                  "parentUUID": "017cbe23-d9c3-486e-a364-a120ebb5babe",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify page lang attribute is set correctly",
+                  "fullTitle": "Localization — Language Switching Language Switcher UI should verify page lang attribute is set correctly",
+                  "timedOut": null,
+                  "duration": 828,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('html').invoke('attr', 'lang').then(lang => {\n  cy.log(`Page lang attribute: ${lang || 'not set'}`);\n  if (!lang) {\n    cy.log('ISSUE: Missing lang attribute on <html> — accessibility concern');\n  }\n  cy.evidenceScreenshot('html-lang-attribute');\n});",
+                  "err": {},
+                  "uuid": "d081f97d-41b0-4fa4-8ada-d9c446739c3a",
+                  "parentUUID": "017cbe23-d9c3-486e-a364-a120ebb5babe",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "885a5247-2696-4726-a3f2-b7bdc1dc9e4a",
+                "857c2d1b-a588-4240-a676-9189bf38695d",
+                "d081f97d-41b0-4fa4-8ada-d9c446739c3a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2816,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "0c9ab7c7-5e8e-47c4-8d41-b042d7674fbc",
+              "title": "Content Language Verification",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display English content by default on the homepage",
+                  "fullTitle": "Localization — Language Switching Content Language Verification should display English content by default on the homepage",
+                  "timedOut": null,
+                  "duration": 1698,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains('Log In').should('be.visible');\ncy.contains('Sign Up').should('be.visible');\ncy.contains('All Products').should('be.visible');\ncy.evidenceScreenshot('english-content-default');",
+                  "err": {},
+                  "uuid": "5c5e9507-8b40-4b0b-bf7a-bbe65d8928f5",
+                  "parentUUID": "0c9ab7c7-5e8e-47c4-8d41-b042d7674fbc",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display English labels in the sign-in form",
+                  "fullTitle": "Localization — Language Switching Content Language Verification should display English labels in the sign-in form",
+                  "timedOut": null,
+                  "duration": 1701,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/sign-in');\ncy.get('input[placeholder=\"Email address\"]').should('be.visible');\ncy.get('input[placeholder=\"Password\"]').should('be.visible');\ncy.contains('Log in').should('be.visible');\ncy.evidenceScreenshot('english-signin-labels');",
+                  "err": {},
+                  "uuid": "435b9d76-2300-4629-a4d3-752b9f1d4d6e",
+                  "parentUUID": "0c9ab7c7-5e8e-47c4-8d41-b042d7674fbc",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display English category names in navigation",
+                  "fullTitle": "Localization — Language Switching Content Language Verification should display English category names in navigation",
+                  "timedOut": null,
+                  "duration": 1923,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains('Oils').should('be.visible');\ncy.contains('Tires').should('be.visible');\ncy.contains('Batteries').should('be.visible');\ncy.evidenceScreenshot('english-category-labels');",
+                  "err": {},
+                  "uuid": "5c4fee4d-5eec-404e-8e64-b045f9d18bad",
+                  "parentUUID": "0c9ab7c7-5e8e-47c4-8d41-b042d7674fbc",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify product names and descriptions are in English",
+                  "fullTitle": "Localization — Language Switching Content Language Verification should verify product names and descriptions are in English",
+                  "timedOut": null,
+                  "duration": 2311,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/products');\ncy.get('p.product-name').first().should('be.visible');\ncy.get('p.product-price').first().should('contain', 'EGP');\ncy.evidenceScreenshot('english-product-content');",
+                  "err": {},
+                  "uuid": "8d45bea3-2598-4e7a-a19a-58c6c0ac2f57",
+                  "parentUUID": "0c9ab7c7-5e8e-47c4-8d41-b042d7674fbc",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5c5e9507-8b40-4b0b-bf7a-bbe65d8928f5",
+                "435b9d76-2300-4629-a4d3-752b9f1d4d6e",
+                "5c4fee4d-5eec-404e-8e64-b045f9d18bad",
+                "8d45bea3-2598-4e7a-a19a-58c6c0ac2f57"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7633,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "b1fe25d2-5ed8-441b-a76b-6dc0d791faed",
+              "title": "Localization Gap Documentation",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should document missing Arabic localization as a critical gap",
+                  "fullTitle": "Localization — Language Switching Localization Gap Documentation should document missing Arabic localization as a critical gap",
+                  "timedOut": null,
+                  "duration": 1300,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.goHome();\ncy.get('body').then($body => {\n  const pageText = $body.text();\n  const hasArabicChars = /[\\u0600-\\u06FF]/.test(pageText);\n  cy.log(`Arabic characters in page (excluding product data): checking...`);\n  // Product names may contain Arabic, but UI/nav should also have Arabic option\n  cy.evidenceScreenshot('localization-gap-evidence');\n});",
+                  "err": {},
+                  "uuid": "624742e5-b8d9-4181-9eb9-9cf1edb6050b",
+                  "parentUUID": "b1fe25d2-5ed8-441b-a76b-6dc0d791faed",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "624742e5-b8d9-4181-9eb9-9cf1edb6050b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1300,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

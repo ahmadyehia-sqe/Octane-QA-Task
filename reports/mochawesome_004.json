@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T21:34:22.716Z",
+    "end": "2026-03-06T21:34:45.442Z",
+    "duration": 22726,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1fd355ac-374e-43df-b193-4b96e01cef58",
+      "title": "",
+      "fullFile": "cypress/e2e/signup-modal-extract.cy.js",
+      "file": "cypress/e2e/signup-modal-extract.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "befdcb54-8676-4fef-99a6-c30023c5da7a",
+          "title": "Signup modal",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "clicks signup and captures modal",
+              "fullTitle": "Signup modal clicks signup and captures modal",
+              "timedOut": null,
+              "duration": 15843,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/home');\ncy.wait(2000);\ncy.get('button.btn-signup').click();\ncy.wait(1500);\ncy.screenshot('signup-modal');\ncy.get('body').then($body => {\n  const allInputs = $body.find('input, button, select, textarea').map((i, el) => ({\n    tag: el.tagName.toLowerCase(),\n    cls: (Cypress.$(el).attr('class') || '').substring(0, 100),\n    type: Cypress.$(el).attr('type') || '',\n    placeholder: Cypress.$(el).attr('placeholder') || '',\n    text: (Cypress.$(el).text() || '').trim().substring(0, 80)\n  })).get();\n  cy.writeFile('cypress/fixtures/signup-modal-dom.json', allInputs);\n});",
+              "err": {},
+              "uuid": "e7cccc3d-6785-44ff-9fdc-466ed7e5d5cb",
+              "parentUUID": "befdcb54-8676-4fef-99a6-c30023c5da7a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "checks products page structure",
+              "fullTitle": "Signup modal checks products page structure",
+              "timedOut": null,
+              "duration": 6868,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/products');\ncy.wait(3000);\ncy.screenshot('products-page');\ncy.get('body').then($body => {\n  const items = $body.find('[class*=\"card\"], [class*=\"product\"], [class*=\"item\"], input, button').map((i, el) => ({\n    tag: el.tagName.toLowerCase(),\n    cls: (Cypress.$(el).attr('class') || '').substring(0, 100),\n    text: (Cypress.$(el).text() || '').trim().substring(0, 80),\n    href: Cypress.$(el).attr('href') || ''\n  })).get().slice(0, 30);\n  cy.writeFile('cypress/fixtures/products-page-dom.json', items);\n});",
+              "err": {},
+              "uuid": "bae9c533-deaa-4fe1-95e3-bbcca1d7098e",
+              "parentUUID": "befdcb54-8676-4fef-99a6-c30023c5da7a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e7cccc3d-6785-44ff-9fdc-466ed7e5d5cb",
+            "bae9c533-deaa-4fe1-95e3-bbcca1d7098e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22711,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

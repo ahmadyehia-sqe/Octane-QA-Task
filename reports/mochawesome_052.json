@@ -1,0 +1,317 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 9,
+    "passes": 9,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-06T22:55:39.023Z",
+    "end": "2026-03-06T22:56:07.805Z",
+    "duration": 28782,
+    "testsRegistered": 9,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "505ef04d-c244-4d45-977b-279e1a0ec9ba",
+      "title": "",
+      "fullFile": "cypress/e2e/cart/cart-management.cy.js",
+      "file": "cypress/e2e/cart/cart-management.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "465ae654-695b-4544-875a-5f08dc06cf56",
+          "title": "Cart Management",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "148cd265-f6e6-46d3-b681-c56a452c7e2f",
+              "title": "Empty Cart State",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display empty cart message when no items added",
+                  "fullTitle": "Cart Management Empty Cart State should display empty cart message when no items added",
+                  "timedOut": null,
+                  "duration": 2343,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/cart');\ncy.get('body').should('contain.text', 'Your cart is empty');\ncy.evidenceScreenshot('empty-cart-message');",
+                  "err": {},
+                  "uuid": "db5ed34d-8fa8-44b9-afa9-3a34fee0ac06",
+                  "parentUUID": "148cd265-f6e6-46d3-b681-c56a452c7e2f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display a Go Shopping button in the empty cart",
+                  "fullTitle": "Cart Management Empty Cart State should display a Go Shopping button in the empty cart",
+                  "timedOut": null,
+                  "duration": 1349,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/cart');\ncy.contains('Go Shopping').should('be.visible');\ncy.evidenceScreenshot('empty-cart-go-shopping');",
+                  "err": {},
+                  "uuid": "93afd6e4-ecf0-47a7-91c1-8a0519c21225",
+                  "parentUUID": "148cd265-f6e6-46d3-b681-c56a452c7e2f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should navigate to products when clicking Go Shopping from empty cart",
+                  "fullTitle": "Cart Management Empty Cart State should navigate to products when clicking Go Shopping from empty cart",
+                  "timedOut": null,
+                  "duration": 2541,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/cart');\ncy.contains('Go Shopping').click();\ncy.url().should('satisfy', url => url.includes('/products') || url.includes('/home'));\ncy.evidenceScreenshot('go-shopping-navigation');",
+                  "err": {},
+                  "uuid": "eef96c5c-2a44-480e-9ebc-a0632f8cf8ad",
+                  "parentUUID": "148cd265-f6e6-46d3-b681-c56a452c7e2f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "db5ed34d-8fa8-44b9-afa9-3a34fee0ac06",
+                "93afd6e4-ecf0-47a7-91c1-8a0519c21225",
+                "eef96c5c-2a44-480e-9ebc-a0632f8cf8ad"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6233,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a2d4f797-b110-4597-bd23-bdee7964cbe0",
+              "title": "Adding Items to Cart",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should add a product to cart using the Add to Cart button on product card",
+                  "fullTitle": "Cart Management Adding Items to Cart should add a product to cart using the Add to Cart button on product card",
+                  "timedOut": null,
+                  "duration": 6338,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.interceptAPI('POST', '**', 'addToCartRequest');\ncy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1000);\ncy.evidenceScreenshot('add-product-to-cart');",
+                  "err": {},
+                  "uuid": "288fc6a1-1107-46b8-b8d8-108638d4232e",
+                  "parentUUID": "a2d4f797-b110-4597-bd23-bdee7964cbe0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reflect added item in cart when navigating to cart page",
+                  "fullTitle": "Cart Management Adding Items to Cart should reflect added item in cart when navigating to cart page",
+                  "timedOut": null,
+                  "duration": 3373,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.products.addToCart).first().click({\n  force: true\n});\ncy.wait(1500);\ncy.visit('/cart');\n// Either shows items or redirects to sign-in (if auth required)\ncy.url().then(url => {\n  if (url.includes('/cart')) {\n    cy.get('body').then($body => {\n      if ($body.text().includes('Your cart is empty')) {\n        cy.log('ISSUE: Item not persisted in cart — possible auth requirement');\n      } else {\n        cy.get('body').should('not.contain', 'Your cart is empty');\n      }\n    });\n  }\n});\ncy.evidenceScreenshot('cart-after-add');",
+                  "err": {},
+                  "uuid": "9693a5d3-bc53-4e5c-a0b4-80c7582cfafb",
+                  "parentUUID": "a2d4f797-b110-4597-bd23-bdee7964cbe0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should navigate to product details when clicking on a product card",
+                  "fullTitle": "Cart Management Adding Items to Cart should navigate to product details when clicking on a product card",
+                  "timedOut": null,
+                  "duration": 4652,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.products.cardLink).first().click();\ncy.url().should('include', '/product-details/');\ncy.get(SELECTORS.products.addToCartDetail).should('be.visible');\ncy.evidenceScreenshot('product-detail-add-to-cart');",
+                  "err": {},
+                  "uuid": "145928cb-8fbe-431a-bfb7-0b68761fb429",
+                  "parentUUID": "a2d4f797-b110-4597-bd23-bdee7964cbe0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should show Add to Cart button on product detail page",
+                  "fullTitle": "Cart Management Adding Items to Cart should show Add to Cart button on product detail page",
+                  "timedOut": null,
+                  "duration": 3152,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/product-details/21');\ncy.get(SELECTORS.products.addToCartDetail).should('be.visible').and('contain', 'Add to cart');\ncy.evidenceScreenshot('product-detail-add-btn');",
+                  "err": {},
+                  "uuid": "870cccb9-929b-42fb-ae86-4115e6616354",
+                  "parentUUID": "a2d4f797-b110-4597-bd23-bdee7964cbe0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "288fc6a1-1107-46b8-b8d8-108638d4232e",
+                "9693a5d3-bc53-4e5c-a0b4-80c7582cfafb",
+                "145928cb-8fbe-431a-bfb7-0b68761fb429",
+                "870cccb9-929b-42fb-ae86-4115e6616354"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 17515,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "47568dc8-a08d-40d0-a457-60008d2cba5f",
+              "title": "Cart Navigation",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should navigate to cart page when clicking cart icon",
+                  "fullTitle": "Cart Management Cart Navigation should navigate to cart page when clicking cart icon",
+                  "timedOut": null,
+                  "duration": 1713,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get(SELECTORS.nav.cart).click();\ncy.url().should('include', '/cart');\ncy.evidenceScreenshot('cart-icon-navigation');",
+                  "err": {},
+                  "uuid": "81e92c36-0f0a-4bbf-bbec-92512726b697",
+                  "parentUUID": "47568dc8-a08d-40d0-a457-60008d2cba5f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should show cart item count badge in navigation",
+                  "fullTitle": "Cart Management Cart Navigation should show cart item count badge in navigation",
+                  "timedOut": null,
+                  "duration": 3193,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/home');\ncy.get(SELECTORS.nav.cart).should('be.visible').and('contain', '0');\ncy.evidenceScreenshot('cart-badge-count');",
+                  "err": {},
+                  "uuid": "015ba57e-13ae-447a-8866-60cc838f4225",
+                  "parentUUID": "47568dc8-a08d-40d0-a457-60008d2cba5f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "81e92c36-0f0a-4bbf-bbec-92512726b697",
+                "015ba57e-13ae-447a-8866-60cc838f4225"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4906,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
