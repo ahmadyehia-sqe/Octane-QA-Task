@@ -11,35 +11,36 @@
 
 | Issue # | Title | Severity | Affected Area |
 |---------|-------|----------|---------------|
-| 1 | No Arabic Localization / Language Switcher | Critical | Entire Platform |
+| 1 | Cart Summary Disappears After Cancelling Save Quotation Modal | High | Cart Page |
 | 2 | Registration Form Has No Password Field | Critical | Authentication |
 | 3 | No Dedicated Quote Request / RFQ Feature | High | B2B Workflow |
 
 ---
 
-## Issue 1: No Arabic Localization / Language Switcher
+## Issue 1: Cart Summary Disappears After Cancelling Save Quotation Modal
 
-**Severity:** Critical
-**Component:** Navigation / Global UI
-**Environment:** All browsers / All viewports
+**Severity:** High
+**Component:** Cart Page — Cart Summary Panel
+**Environment:** All browsers
 
 **Steps to Reproduce:**
-1. Navigate to `https://uat-ostore.vercel.app/home`
-2. Examine the navigation bar and footer for a language toggle
-3. Inspect `<html>` element for `lang` or `dir` attributes
+1. Navigate to `/products` and add any product to the cart
+2. Navigate to `/cart`
+3. Click the **Save Quotation** button in the cart summary (right panel)
+4. When the modal appears, click **Cancel**
+5. Scroll down the page
 
 **Expected Result:**
-A language toggle (EN/AR) visible in navigation. Clicking "AR" switches UI to Arabic with RTL layout, Arabic translations for all nav items, buttons, and labels.
+The cart summary panel (right side) remains fully visible and in its correct position after closing the modal. The Save Quotation button, Checkout button, and order total should all be accessible.
 
 **Actual Result:**
-No language switcher exists anywhere on the platform. The `<html>` element has no `lang` or `dir` attribute. The UI is English-only with LTR layout. Product descriptions sometimes contain Arabic text (content supports Arabic), but no UI-level localization is implemented.
+After clicking Cancel on the Save Quotation modal, the cart summary panel breaks out of its layout position. On scroll, the panel is pushed above the viewport (observed `top: -146px`) making it completely inaccessible to the user. The cart items remain visible but the user can no longer see their total or proceed to checkout.
 
 **Business Impact:**
-The platform targets Qatar and the wider Middle East — a predominantly Arabic-speaking region. Missing Arabic localization:
-- Directly excludes fleet managers who prefer Arabic
-- Reduces trust and adoption in the primary target market
-- Fails accessibility standards (`lang` attribute missing)
-- Is a critical gap for any B2B platform serving the GCC region
+- Blocks users from proceeding to checkout after exploring the Save Quotation feature
+- Users lose visibility of their order total and payment/delivery options
+- Directly interrupts the purchase flow — a high-severity UX and revenue impact
+- Automated regression test added to detect this: `quote-request.cy.js` — "Save Quotation Modal Interaction"
 
 ---
 

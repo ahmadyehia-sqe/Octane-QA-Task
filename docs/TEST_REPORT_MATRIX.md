@@ -16,7 +16,7 @@
 | 2 | Product Browsing & Search | High | 12 | ✅ 12/12 | ✅ 12/12 | ✅ 12/12 | 0 |
 | 3 | Cart Management | High | 9 | ✅ 9/9 | ✅ 9/9 | ✅ 9/9 | 0 |
 | 4 | Full Checkout Flow | High | 7 | ✅ 7/7 | ✅ 7/7 | ✅ 7/7 | 0 |
-| 5 | Quote Request | High | 7 | ✅ 7/7 | ✅ 7/7 | ✅ 7/7 | 1 (see Issue #3) |
+| 5 | Quote Request | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 2 (see Issue #1, #3) |
 | 6 | Arabic/English Localization | Medium | 8 | ✅ 8/8 | ✅ 8/8 | ✅ 8/8 | 1 (see Issue #1) |
 | 7 | Mobile Responsiveness | Medium | 12 | ✅ 12/12 | ✅ 12/12 | ✅ 12/12 | 0 |
 | 8 | Order Tracking | Medium | 9 | ✅ 9/9 | ✅ 9/9 | ✅ 9/9 | 0 |
@@ -28,13 +28,13 @@
 | Metric | Value |
 |--------|-------|
 | **Total Test Scenarios** | 8 |
-| **Total Test Cases** | 72 |
-| **Chrome Pass Rate** | 72/72 (100%) |
-| **Electron Pass Rate** | 72/72 (100%) |
-| **Mobile Pass Rate** | 72/72 (100%) |
-| **Overall Pass Rate** | **100%** |
-| **Critical Defects Found** | 2 |
-| **High Defects Found** | 1 |
+| **Total Test Cases** | 73 |
+| **Chrome Pass Rate** | 72/73 (98.6%) |
+| **Electron Pass Rate** | 72/73 (98.6%) |
+| **Mobile Pass Rate** | 72/73 (98.6%) |
+| **Overall Pass Rate** | **98.6%** |
+| **Critical Defects Found** | 1 |
+| **High Defects Found** | 2 |
 
 ---
 
@@ -43,7 +43,7 @@
 | Defect ID | Scenario | Summary | Severity |
 |-----------|----------|---------|----------|
 | BUG-001 | Registration & Login | Registration form has no password field | Critical |
-| BUG-002 | Localization | No Arabic language switcher implemented | Critical |
+| BUG-002 | Quote Request | Cart summary disappears after cancelling Save Quotation modal | High |
 | BUG-003 | Quote Request | No dedicated RFQ/quote feature on product pages | High |
 
 > **Note:** All 72 tests are written defensively — they pass because they document expected behavior
@@ -97,7 +97,7 @@
 - ✅ /checkout redirects correctly
 - ✅ Sign-in form before checkout
 
-### 5. Quote Request (7 tests)
+### 5. Quote Request (8 tests)
 - ✅ Save Quotation button in cart
 - ✅ Checkout button in cart summary
 - ✅ Payment Options in cart
@@ -105,6 +105,7 @@
 - ✅ WhatsApp float button (homepage)
 - ✅ WhatsApp float button (products)
 - ✅ Full quote workflow documented
+- ❌ Cart summary stays visible after cancelling Save Quotation modal (BUG-002)
 
 ### 6. Localization (8 tests)
 - ✅ Language switcher check (documents absence)

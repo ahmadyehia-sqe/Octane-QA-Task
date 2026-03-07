@@ -81,6 +81,43 @@ describe('Quote Request — Save Quotation', () => {
     });
   });
 
+  context('Save Quotation Modal Interaction', () => {
+    it('should keep cart summary visible after opening and cancelling the Save Quotation modal', { retries: 0 }, () => {
+      // Step 1: Add product to cart
+      cy.visit('/products');
+      cy.get(SELECTORS.products.addToCart).first().click({ force: true });
+      cy.wait(1000);
+
+      // Step 2: Go to cart
+      cy.visit('/cart');
+
+      // Step 3: Click Save Quotation
+      cy.contains('button', 'Save Quotation').should('be.visible').click();
+
+      // Step 4: Cancel the modal
+      cy.get('.el-dialog').should('be.visible');
+      cy.get('.el-dialog').contains('button', 'Cancel').click();
+      cy.get('.el-dialog').should('not.be.visible');
+
+      // Step 5: Scroll and verify cart summary panel is still in the correct position
+      cy.evidenceScreenshot('cart-summary-immediately-after-cancel');
+      cy.scrollTo('bottom');
+      cy.wait(500);
+      cy.evidenceScreenshot('cart-summary-after-modal-cancel');
+
+      // Cart summary is a right-side panel — scroll to top and verify it is visible in the viewport
+      cy.scrollTo('top');
+      cy.contains('button', 'Save Quotation').then(($btn) => {
+        const rect = $btn[0].getBoundingClientRect();
+        // Button must be within the visible viewport (720px height), not buried below
+        expect(rect.top, 'Cart summary panel should be visible in viewport, not pushed off-screen').to.be.lessThan(720);
+        expect(rect.top, 'Cart summary panel should not be above viewport').to.be.greaterThan(0);
+        // And it must be on the right half of the screen (right panel layout)
+        expect(rect.left, 'Cart summary should remain in the right panel').to.be.greaterThan(640);
+      });
+    });
+  });
+
   context('Quote Flow Documentation', () => {
     it('should document the quote flow: add items → cart → Save Quotation', () => {
       // This test documents the complete quote workflow
