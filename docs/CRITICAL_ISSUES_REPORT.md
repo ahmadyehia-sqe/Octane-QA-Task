@@ -1,7 +1,7 @@
 # Critical Issues Report — OStore UAT
 
 **Platform:** https://uat-ostore.vercel.app
-**Tested By:** QA Automation Engineer
+**Tested By:** Ahmad Yehia
 **Date:** 2026-03-07
 **Environment:** Chrome 145 (headless) / Electron / Mobile (375×812)
 
