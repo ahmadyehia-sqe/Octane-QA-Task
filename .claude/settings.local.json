@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(ls -la /Users/ahmadyehia/Downloads/task/cypress/*.cy.js)"
-    ]
-  }
-}
