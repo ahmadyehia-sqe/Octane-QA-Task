@@ -49,6 +49,24 @@ describe('Mobile Responsiveness', () => {
     });
   });
 
+  context('Mobile Sidebar Navigation', () => {
+    it('should close the sidebar after clicking a category link', () => {
+      cy.visit('/home');
+
+      // Open sidebar via hamburger button
+      cy.get('i.bi-list').should('be.visible').click();
+      cy.get('.el-drawer').should('be.visible');
+      cy.evidenceScreenshot('mobile-sidebar-open');
+
+      // Click a category link inside the sidebar
+      cy.get('.el-drawer').contains('a', /oils|tires|batteries|products/i).first().click({ force: true });
+
+      // Sidebar should close after navigation
+      cy.get('.el-drawer').should('not.be.visible');
+      cy.evidenceScreenshot('mobile-sidebar-after-category-click');
+    });
+  });
+
   context('Category Navigation on Mobile', () => {
     it('should display category links on mobile viewport', () => {
       cy.visit('/home');

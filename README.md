@@ -88,7 +88,7 @@ octane-qa-task/
 
 ## Test Results
 
-### 74 Tests — 8 Scenarios — 97.3% Pass Rate
+### 75 Tests — 8 Scenarios — 96% Pass Rate
 
 | # | Scenario | Tests | Chrome | Electron | Mobile |
 |---|----------|-------|--------|----------|--------|
@@ -98,7 +98,7 @@ octane-qa-task/
 | 4 | Full Checkout Flow | 7 | ✅ | ✅ | ✅ |
 | 5 | Quote Request | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 |
 | 6 | Arabic/English Localization | 8 | ✅ | ✅ | ✅ |
-| 7 | Mobile Responsiveness | 12 | ✅ | ✅ | ✅ |
+| 7 | Mobile Responsiveness | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 |
 | 8 | Order Tracking | 9 | ✅ | ✅ | ✅ |
 
 > Firefox was not installed on the test machine. Electron (Chromium-based, bundled with Cypress) was used as the second desktop browser.
@@ -113,6 +113,7 @@ See [docs/CRITICAL_ISSUES_REPORT.md](docs/CRITICAL_ISSUES_REPORT.md) for full de
 | 2 | Registration form has no password field | Critical |
 | 3 | No dedicated RFQ / quote request feature | High |
 | 4 | Hamburger menu button hidden on desktop | Medium |
+| 5 | Mobile sidebar does not close after clicking a category | Medium |
 
 ## Prioritization Rationale
 

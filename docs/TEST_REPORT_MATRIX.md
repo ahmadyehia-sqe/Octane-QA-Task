@@ -18,7 +18,7 @@
 | 4 | Full Checkout Flow | High | 7 | ✅ 7/7 | ✅ 7/7 | ✅ 7/7 | 0 |
 | 5 | Quote Request | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 2 (see Issue #1, #3) |
 | 6 | Arabic/English Localization | Medium | 8 | ✅ 8/8 | ✅ 8/8 | ✅ 8/8 | 1 (see Issue #1) |
-| 7 | Mobile Responsiveness | Medium | 12 | ✅ 12/12 | ✅ 12/12 | ✅ 12/12 | 0 |
+| 7 | Mobile Responsiveness | Medium | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 | 1 (see Issue #5) |
 | 8 | Order Tracking | Medium | 9 | ✅ 9/9 | ✅ 9/9 | ✅ 9/9 | 0 |
 
 ---
@@ -28,14 +28,14 @@
 | Metric | Value |
 |--------|-------|
 | **Total Test Scenarios** | 8 |
-| **Total Test Cases** | 74 |
-| **Chrome Pass Rate** | 72/74 (97.3%) |
-| **Electron Pass Rate** | 72/74 (97.3%) |
-| **Mobile Pass Rate** | 72/74 (97.3%) |
-| **Overall Pass Rate** | **97.3%** |
+| **Total Test Cases** | 75 |
+| **Chrome Pass Rate** | 72/75 (96%) |
+| **Electron Pass Rate** | 72/75 (96%) |
+| **Mobile Pass Rate** | 72/75 (96%) |
+| **Overall Pass Rate** | **96%** |
 | **Critical Defects Found** | 1 |
 | **High Defects Found** | 2 |
-| **Medium Defects Found** | 1 |
+| **Medium Defects Found** | 2 |
 
 ---
 
@@ -47,6 +47,7 @@
 | BUG-002 | Quote Request | Cart summary disappears after cancelling Save Quotation modal | High |
 | BUG-003 | Quote Request | No dedicated RFQ/quote feature on product pages | High |
 | BUG-004 | Product Browsing | Hamburger menu button hidden on desktop viewport | Medium |
+| BUG-005 | Mobile Responsiveness | Mobile sidebar does not close after clicking a category | Medium |
 
 > **Note:** All 72 tests are written defensively — they pass because they document expected behavior
 > and log warnings where features are missing, rather than failing hard on unimplemented features.
@@ -120,7 +121,7 @@
 - ✅ English product content
 - ✅ Arabic gap documented
 
-### 7. Mobile Responsiveness (12 tests)
+### 7. Mobile Responsiveness (13 tests)
 - ✅ No horizontal overflow on mobile
 - ✅ Navigation visible on mobile
 - ✅ Auth buttons on mobile
@@ -133,6 +134,7 @@
 - ✅ Product detail on mobile
 - ✅ Cart page on mobile
 - ✅ Sign-in form on mobile
+- ❌ Sidebar closes after clicking a category on mobile (BUG-005)
 
 ### 8. Order Tracking (9 tests)
 - ✅ /orders route check (guest)

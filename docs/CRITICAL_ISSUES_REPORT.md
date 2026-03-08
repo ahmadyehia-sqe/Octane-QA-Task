@@ -15,6 +15,7 @@
 | 2 | Registration Form Has No Password Field | Critical | Authentication |
 | 3 | No Dedicated Quote Request / RFQ Feature | High | B2B Workflow |
 | 4 | Hamburger Menu Button Hidden on Desktop | Medium | Navigation |
+| 5 | Mobile Sidebar Does Not Close After Clicking a Category | Medium | Navigation / Mobile |
 
 ---
 
@@ -117,6 +118,32 @@ The hamburger button (`i.bi-list`) exists in the DOM but is hidden via CSS on de
 - Desktop users cannot access the sidebar navigation
 - Sidebar content (if any) is completely unreachable on the primary browsing viewport
 - Automated regression test added: `catalog/product-browsing.cy.js` — "Desktop Navigation Sidebar"
+
+---
+
+## Issue 5: Mobile Sidebar Does Not Close After Clicking a Category
+
+**Severity:** Medium
+**Component:** Navigation — Mobile Sidebar Drawer
+**Environment:** Mobile viewports (375×812 and similar)
+
+**Steps to Reproduce:**
+1. Open the site on a mobile viewport
+2. Click the hamburger button (☰) in the navigation bar
+3. Verify the sidebar drawer opens
+4. Click any category link inside the sidebar (Oils, Tires, Batteries, All Products)
+
+**Expected Result:**
+The sidebar closes automatically after the user selects a category, and the page navigates to the selected category.
+
+**Actual Result:**
+The sidebar drawer remains open (`el-drawer.open`) after clicking a category link. The page navigates correctly but the sidebar stays visible, blocking page content.
+
+**Business Impact:**
+- Users must manually close the sidebar after every navigation action on mobile
+- Sidebar overlay blocks product content, search, and other interactions
+- Poor mobile UX for the primary browsing flow
+- Automated regression test added: `responsive/mobile-responsiveness.cy.js` — "Mobile Sidebar Navigation"
 
 ---
 
