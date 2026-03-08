@@ -50,6 +50,20 @@ describe('Product Catalog — Browsing & Search', () => {
     });
   });
 
+  context('Desktop Navigation Sidebar', () => {
+    it('should display the hamburger menu button and open the sidebar on desktop', () => {
+      cy.setDesktopViewport();
+      cy.evidenceScreenshot('desktop-nav-before-hamburger');
+
+      // Hamburger button should be visible on desktop
+      cy.get('i.bi-list').should('be.visible').click();
+
+      // Sidebar drawer should open after clicking
+      cy.get('.el-drawer').should('be.visible');
+      cy.evidenceScreenshot('desktop-nav-sidebar-open');
+    });
+  });
+
   context('Product Listing', () => {
     beforeEach(() => {
       cy.visit('/products');

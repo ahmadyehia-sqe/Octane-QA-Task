@@ -88,12 +88,12 @@ octane-qa-task/
 
 ## Test Results
 
-### 73 Tests — 8 Scenarios — 98.6% Pass Rate
+### 74 Tests — 8 Scenarios — 97.3% Pass Rate
 
 | # | Scenario | Tests | Chrome | Electron | Mobile |
 |---|----------|-------|--------|----------|--------|
 | 1 | Registration & Login | 8 | ✅ | ✅ | ✅ |
-| 2 | Product Browsing & Search | 12 | ✅ | ✅ | ✅ |
+| 2 | Product Browsing & Search | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 |
 | 3 | Cart Management | 9 | ✅ | ✅ | ✅ |
 | 4 | Full Checkout Flow | 7 | ✅ | ✅ | ✅ |
 | 5 | Quote Request | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 |
@@ -112,6 +112,7 @@ See [docs/CRITICAL_ISSUES_REPORT.md](docs/CRITICAL_ISSUES_REPORT.md) for full de
 | 1 | Cart summary disappears after cancelling Save Quotation modal | High |
 | 2 | Registration form has no password field | Critical |
 | 3 | No dedicated RFQ / quote request feature | High |
+| 4 | Hamburger menu button hidden on desktop | Medium |
 
 ## Prioritization Rationale
 

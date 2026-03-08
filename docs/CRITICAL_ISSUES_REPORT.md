@@ -14,6 +14,7 @@
 | 1 | Cart Summary Disappears After Cancelling Save Quotation Modal | High | Cart Page |
 | 2 | Registration Form Has No Password Field | Critical | Authentication |
 | 3 | No Dedicated Quote Request / RFQ Feature | High | B2B Workflow |
+| 4 | Hamburger Menu Button Hidden on Desktop | Medium | Navigation |
 
 ---
 
@@ -93,6 +94,29 @@ No "Request Quote" button exists on product listings or detail pages. The only q
 - Forcing users through the cart flow for "Save Quotation" is friction for B2B workflows
 - Reliance on WhatsApp is unscalable and untrackable
 - Competitors with self-service RFQ portals have a significant advantage
+
+---
+
+## Issue 4: Hamburger Menu Button Hidden on Desktop
+
+**Severity:** Medium
+**Component:** Navigation Bar
+**Environment:** Desktop (1280×720 and above)
+
+**Steps to Reproduce:**
+1. Navigate to `https://uat-ostore.vercel.app/home` on a desktop browser
+2. Observe the navigation bar for a sidebar/hamburger toggle button
+
+**Expected Result:**
+A hamburger menu button (☰) is visible in the navigation bar on desktop, allowing users to open the sidebar navigation drawer.
+
+**Actual Result:**
+The hamburger button (`i.bi-list`) exists in the DOM but is hidden via CSS on desktop viewports. The sidebar drawer is also present in the DOM but inaccessible since the toggle button is not visible.
+
+**Business Impact:**
+- Desktop users cannot access the sidebar navigation
+- Sidebar content (if any) is completely unreachable on the primary browsing viewport
+- Automated regression test added: `catalog/product-browsing.cy.js` — "Desktop Navigation Sidebar"
 
 ---
 

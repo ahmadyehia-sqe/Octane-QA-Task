@@ -13,7 +13,7 @@
 | # | Scenario | Priority | Tests | Chrome | Electron | Mobile | Defects |
 |---|----------|----------|-------|--------|----------|--------|---------|
 | 1 | Registration & Login | High | 8 | ✅ 8/8 | ✅ 8/8 | ✅ 8/8 | 1 (see Issue #2) |
-| 2 | Product Browsing & Search | High | 12 | ✅ 12/12 | ✅ 12/12 | ✅ 12/12 | 0 |
+| 2 | Product Browsing & Search | High | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 | 1 (see Issue #4) |
 | 3 | Cart Management | High | 9 | ✅ 9/9 | ✅ 9/9 | ✅ 9/9 | 0 |
 | 4 | Full Checkout Flow | High | 7 | ✅ 7/7 | ✅ 7/7 | ✅ 7/7 | 0 |
 | 5 | Quote Request | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 2 (see Issue #1, #3) |
@@ -28,13 +28,14 @@
 | Metric | Value |
 |--------|-------|
 | **Total Test Scenarios** | 8 |
-| **Total Test Cases** | 73 |
-| **Chrome Pass Rate** | 72/73 (98.6%) |
-| **Electron Pass Rate** | 72/73 (98.6%) |
-| **Mobile Pass Rate** | 72/73 (98.6%) |
-| **Overall Pass Rate** | **98.6%** |
+| **Total Test Cases** | 74 |
+| **Chrome Pass Rate** | 72/74 (97.3%) |
+| **Electron Pass Rate** | 72/74 (97.3%) |
+| **Mobile Pass Rate** | 72/74 (97.3%) |
+| **Overall Pass Rate** | **97.3%** |
 | **Critical Defects Found** | 1 |
 | **High Defects Found** | 2 |
+| **Medium Defects Found** | 1 |
 
 ---
 
@@ -45,6 +46,7 @@
 | BUG-001 | Registration & Login | Registration form has no password field | Critical |
 | BUG-002 | Quote Request | Cart summary disappears after cancelling Save Quotation modal | High |
 | BUG-003 | Quote Request | No dedicated RFQ/quote feature on product pages | High |
+| BUG-004 | Product Browsing | Hamburger menu button hidden on desktop viewport | Medium |
 
 > **Note:** All 72 tests are written defensively — they pass because they document expected behavior
 > and log warnings where features are missing, rather than failing hard on unimplemented features.
@@ -65,7 +67,7 @@
 - ✅ Log In nav link navigates to /sign-in
 - ✅ Continue as Guest works
 
-### 2. Product Browsing & Search (12 tests)
+### 2. Product Browsing & Search (13 tests)
 - ✅ Category links in nav (Oils, Tires, Batteries)
 - ✅ Category cards on homepage
 - ✅ Navigation to each category (3 tests)
@@ -76,6 +78,7 @@
 - ✅ Search returns valid results
 - ✅ Empty search state
 - ✅ Best Sellers page
+- ❌ Hamburger menu button visible and functional on desktop (BUG-004)
 
 ### 3. Cart Management (9 tests)
 - ✅ Empty cart message
