@@ -16,7 +16,7 @@
 | 2 | Product Browsing & Search | High | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 | 1 (see Issue #4) |
 | 3 | Cart Management | High | 9 | ✅ 9/9 | ✅ 9/9 | ✅ 9/9 | 0 |
 | 4 | Full Checkout Flow | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 1 (see Issue #6) |
-| 5 | Quote Request | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 2 (see Issue #1, #3) |
+| 5 | Quote Request | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 1 (see Issue #1) |
 | 6 | Arabic/English Localization | Medium | 8 | ✅ 8/8 | ✅ 8/8 | ✅ 8/8 | 1 (see Issue #1) |
 | 7 | Mobile Responsiveness | Medium | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 | 1 (see Issue #5) |
 | 8 | Order Tracking | Medium | 9 | ✅ 9/9 | ✅ 9/9 | ✅ 9/9 | 0 |

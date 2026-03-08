@@ -77,7 +77,7 @@ These affect user experience and market reach but don't immediately block core t
 **Scenario 6 — Arabic / English Localization**
 - **Business Impact:** High for market penetration, Medium for immediate revenue
 - **User Frequency:** Varies by region; High for Arabic-speaking users
-- **Rationale:** Saudi Arabia and GCC fleet managers expect Arabic as a first-class language. Testing confirmed BUG-002: no language switcher exists. This is rated Medium priority for test execution (tests still pass in English), but the underlying defect is Critical for go-live readiness.
+- **Rationale:** Saudi Arabia and GCC fleet managers expect Arabic as a first-class language. Testing confirmed no language switcher exists. This is rated Medium priority for test execution (tests still pass in English), but the underlying defect is Critical for go-live readiness.
 
 ---
 

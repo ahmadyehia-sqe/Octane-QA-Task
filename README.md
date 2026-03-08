@@ -111,16 +111,13 @@ See [docs/CRITICAL_ISSUES_REPORT.md](docs/CRITICAL_ISSUES_REPORT.md) for full de
 |---|-------|----------|
 | 1 | Cart summary disappears after cancelling Save Quotation modal | High |
 | 2 | Registration form has no password field | Critical |
-| 3 | No dedicated RFQ / quote request feature | High |
-| 4 | Hamburger menu button hidden on desktop | Medium |
-| 5 | Mobile sidebar does not close after clicking a category | Medium |
-| 6 | Order Complete page (Step 3) renders blank | Low |
+| 3 | Order Complete page (Step 3) renders blank | Low |
 
 ## Prioritization Rationale
 
 See [docs/PRIORITIZATION_RATIONALE.md](docs/PRIORITIZATION_RATIONALE.md) for the full risk-based analysis.
 
-**Go/No-Go:** ❌ NOT ready for production — BUG-002 (broken auth loop) is a launch blocker, and BUG-001 (cart summary layout break) directly disrupts the checkout flow.
+**Go/No-Go:** ❌ NOT ready for production — Issue #2 (broken auth loop) is a launch blocker, and Issue #1 (cart summary layout break) directly disrupts the checkout flow.
 
 ## Architecture Decisions
 
@@ -130,8 +127,8 @@ All DOM selectors live in one file. When the UI changes, update selectors in one
 ### Custom Commands (`commands.js`)
 Reusable commands (`cy.login()`, `cy.register()`, `cy.addProductToCart()`) abstract repetitive flows. Tests read like user stories, not implementation details.
 
-### No `cy.wait(ms)`
-All timing is handled via `cy.intercept()` for API waits or natural Cypress retrying. Hard waits are avoided throughout.
+### Minimal `cy.wait(ms)`
+Timing relies primarily on `cy.intercept()` for API waits and natural Cypress retrying. Short `cy.wait()` calls are used only where UI animations require a brief settle time before assertions.
 
 ### Fixture-Driven Data
 All test data (users, products, orders) lives in `cypress/fixtures/`. Zero hardcoded values in test files.
