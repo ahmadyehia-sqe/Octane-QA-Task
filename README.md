@@ -88,14 +88,14 @@ octane-qa-task/
 
 ## Test Results
 
-### 75 Tests — 8 Scenarios — 96% Pass Rate
+### 76 Tests — 8 Scenarios — 94.7% Pass Rate
 
 | # | Scenario | Tests | Chrome | Electron | Mobile |
 |---|----------|-------|--------|----------|--------|
 | 1 | Registration & Login | 8 | ✅ | ✅ | ✅ |
 | 2 | Product Browsing & Search | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 |
 | 3 | Cart Management | 9 | ✅ | ✅ | ✅ |
-| 4 | Full Checkout Flow | 7 | ✅ | ✅ | ✅ |
+| 4 | Full Checkout Flow | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 |
 | 5 | Quote Request | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 |
 | 6 | Arabic/English Localization | 8 | ✅ | ✅ | ✅ |
 | 7 | Mobile Responsiveness | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 |
@@ -114,6 +114,7 @@ See [docs/CRITICAL_ISSUES_REPORT.md](docs/CRITICAL_ISSUES_REPORT.md) for full de
 | 3 | No dedicated RFQ / quote request feature | High |
 | 4 | Hamburger menu button hidden on desktop | Medium |
 | 5 | Mobile sidebar does not close after clicking a category | Medium |
+| 6 | Order Complete page (Step 3) renders blank | Low |
 
 ## Prioritization Rationale
 

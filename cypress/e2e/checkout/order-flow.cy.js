@@ -68,6 +68,36 @@ describe('Checkout — Order Flow', () => {
     });
   });
 
+  context('Checkout Stepper Steps', () => {
+    it('should display content on the Order Complete page after checkout is submitted', { retries: 0 }, () => {
+      cy.visit('/products');
+      cy.get(SELECTORS.products.addToCart).first().click({ force: true });
+      cy.wait(1000);
+      cy.visit('/cart');
+
+      // Verify the 3-step stepper is displayed in the cart
+      cy.get('body').should('contain.text', 'Shopping cart');
+      cy.get('body').should('contain.text', 'Checkout details');
+      cy.get('body').should('contain.text', 'Order complete');
+      cy.evidenceScreenshot('checkout-stepper-all-steps');
+
+      // Step 3 "Order complete" (/order-confirmation) should show actual content
+      cy.visit('/order-confirmation');
+      cy.wait(2000);
+      cy.evidenceScreenshot('checkout-step3-order-complete');
+
+      // Page should show order confirmation content — not be blank
+      // Expected: order summary, confirmation message, or order number
+      cy.get('body').should('contain.text', 'Order')
+        .and('not.be.empty');
+      cy.get('main, .container, #app > div > div:not(.navigation-Bar)')
+        .invoke('text')
+        .then((text) => {
+          expect(text.trim().length, 'Order Complete page content should not be blank').to.be.greaterThan(20);
+        });
+    });
+  });
+
   context('Authentication Gate for Checkout', () => {
     it('should redirect to sign-in from checkout when not authenticated', () => {
       cy.visit('/checkout');

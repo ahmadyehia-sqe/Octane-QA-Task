@@ -15,7 +15,7 @@
 | 1 | Registration & Login | High | 8 | ✅ 8/8 | ✅ 8/8 | ✅ 8/8 | 1 (see Issue #2) |
 | 2 | Product Browsing & Search | High | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 | 1 (see Issue #4) |
 | 3 | Cart Management | High | 9 | ✅ 9/9 | ✅ 9/9 | ✅ 9/9 | 0 |
-| 4 | Full Checkout Flow | High | 7 | ✅ 7/7 | ✅ 7/7 | ✅ 7/7 | 0 |
+| 4 | Full Checkout Flow | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 1 (see Issue #6) |
 | 5 | Quote Request | High | 8 | ❌ 7/8 | ❌ 7/8 | ❌ 7/8 | 2 (see Issue #1, #3) |
 | 6 | Arabic/English Localization | Medium | 8 | ✅ 8/8 | ✅ 8/8 | ✅ 8/8 | 1 (see Issue #1) |
 | 7 | Mobile Responsiveness | Medium | 13 | ❌ 12/13 | ❌ 12/13 | ❌ 12/13 | 1 (see Issue #5) |
@@ -28,14 +28,15 @@
 | Metric | Value |
 |--------|-------|
 | **Total Test Scenarios** | 8 |
-| **Total Test Cases** | 75 |
-| **Chrome Pass Rate** | 72/75 (96%) |
-| **Electron Pass Rate** | 72/75 (96%) |
-| **Mobile Pass Rate** | 72/75 (96%) |
-| **Overall Pass Rate** | **96%** |
+| **Total Test Cases** | 76 |
+| **Chrome Pass Rate** | 72/76 (94.7%) |
+| **Electron Pass Rate** | 72/76 (94.7%) |
+| **Mobile Pass Rate** | 72/76 (94.7%) |
+| **Overall Pass Rate** | **94.7%** |
 | **Critical Defects Found** | 1 |
 | **High Defects Found** | 2 |
 | **Medium Defects Found** | 2 |
+| **Low Defects Found** | 1 |
 
 ---
 
@@ -48,6 +49,7 @@
 | BUG-003 | Quote Request | No dedicated RFQ/quote feature on product pages | High |
 | BUG-004 | Product Browsing | Hamburger menu button hidden on desktop viewport | Medium |
 | BUG-005 | Mobile Responsiveness | Mobile sidebar does not close after clicking a category | Medium |
+| BUG-006 | Full Checkout Flow | Order Complete page (Step 3) renders blank — never reachable | Low |
 
 > **Note:** All 72 tests are written defensively — they pass because they document expected behavior
 > and log warnings where features are missing, rather than failing hard on unimplemented features.
@@ -92,7 +94,7 @@
 - ✅ Cart icon navigation
 - ✅ Cart badge count
 
-### 4. Full Checkout Flow (7 tests)
+### 4. Full Checkout Flow (8 tests)
 - ✅ Cart accessible as guest
 - ✅ Cart page structure
 - ✅ Browse → add to cart → cart flow
@@ -100,6 +102,7 @@
 - ✅ Checkout + Save Quotation buttons visible
 - ✅ /checkout redirects correctly
 - ✅ Sign-in form before checkout
+- ❌ Order Complete page (Step 3) has content after checkout (BUG-006)
 
 ### 5. Quote Request (8 tests)
 - ✅ Save Quotation button in cart
