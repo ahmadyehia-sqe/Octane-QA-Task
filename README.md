@@ -136,14 +136,11 @@ All timing is handled via `cy.intercept()` for API waits or natural Cypress retr
 ### Fixture-Driven Data
 All test data (users, products, orders) lives in `cypress/fixtures/`. Zero hardcoded values in test files.
 
-## Video Demos
+## Video Demo
 
-Test execution videos are auto-generated in `cypress/videos/` after each run:
-
-- `auth/registration-login.cy.js` — Registration modal + authentication flow
-- `checkout/order-flow.cy.js` — Product browse → cart → checkout
-- `quotes/quote-request.cy.js` — Save Quotation + WhatsApp channel
-- `responsive/mobile-responsiveness.cy.js` — Full mobile viewport tests
+| Scenario | Link |
+|----------|------|
+| Checkout Order Flow (all 8 tests) | [Watch on Google Drive](https://drive.google.com/file/d/1vHGKvWdI18xFK41ixqHICWpAt4iSgQJR/view?usp=sharing) |
 
 ## Future Improvements
 
