@@ -13,7 +13,7 @@
 |---------|-------|----------|---------------|
 | 1 | Cart Summary Disappears After Cancelling Save Quotation Modal | High | Cart Page |
 | 2 | Registration Form Has No Password Field | Critical | Authentication |
-| 3 | No Dedicated Quote Request / RFQ Feature | High | B2B Workflow |
+| 3 | Order Complete Page (Step 3) Renders Blank | Low | Checkout Flow |
 
 ---
 
@@ -42,6 +42,14 @@ After clicking Cancel on the Save Quotation modal, the cart summary panel breaks
 - Directly interrupts the purchase flow — a high-severity UX and revenue impact
 - Automated regression test added to detect this: `quote-request.cy.js` — "Save Quotation Modal Interaction"
 
+**Screenshots:**
+
+*Before — Cart summary visible and in correct position:*
+![Cart summary before cancel](../cypress/screenshots/record/bug-screenshots.cy.js/bug-002-cart-summary-before.png)
+
+*After — Cart summary displaced off-screen after cancelling modal and scrolling:*
+![Cart summary after cancel](../cypress/screenshots/record/bug-screenshots.cy.js/bug-002-cart-summary-after-cancel.png)
+
 ---
 
 ## Issue 2: Registration Form Has No Password Field
@@ -68,31 +76,45 @@ The modal only collects: Full Name, Company, Email Address, Phone Number — **n
 - Fleet managers cannot access cart, order history, or checkout after registering
 - Directly blocks the revenue-generating user journey
 
+**Screenshot:**
+
+*Registration modal — no password field present:*
+![Registration form no password](../cypress/screenshots/record/bug-screenshots.cy.js/bug-001-registration-no-password.png)
+
 ---
 
-## Issue 3: No Dedicated Quote Request / RFQ Feature
+## Issue 3: Order Complete Page (Step 3) Renders Blank
 
-**Severity:** High
-**Component:** B2B Quote Workflow
+**Severity:** Low
+**Component:** Checkout Flow — Order Confirmation Page
 **Environment:** All browsers
 
 **Steps to Reproduce:**
-1. Navigate to `/products` or any product detail page
-2. Look for "Request Quote", "Get Quote", or "RFQ" button
-3. Check navigation for a dedicated Quotes section
-4. Check user account for quote history
+1. Add any product to the cart
+2. Navigate to `/cart`
+3. Observe the 3-step checkout stepper: Shopping cart → Checkout details → Order complete
+4. Complete the checkout flow or navigate directly to `/order-confirmation`
 
 **Expected Result:**
-A dedicated RFQ flow: "Request Quote" button on product pages, a bulk order form with quantity/delivery fields, and a quote history in the user account.
+After completing an order, the user is directed to an "Order Complete" page (Step 3) showing an order confirmation message, order number, and summary details.
 
 **Actual Result:**
-No "Request Quote" button exists on product listings or detail pages. The only quote-adjacent feature is a **"Save Quotation"** button on the cart page — requiring products to be in the cart first. The WhatsApp float button appears to be the de-facto quote channel.
+The `/order-confirmation` page renders completely blank. Step 3 "Order complete" exists in the stepper UI but leads to an empty page with no content, no confirmation message, and no order details.
 
 **Business Impact:**
-- Fleet managers typically request quotes before committing — especially for bulk orders
-- Forcing users through the cart flow for "Save Quotation" is friction for B2B workflows
-- Reliance on WhatsApp is unscalable and untrackable
-- Competitors with self-service RFQ portals have a significant advantage
+- Users have no confirmation that their order was successfully placed
+- No order number or reference is provided after purchase
+- Creates uncertainty and distrust in the checkout process
+- Users may attempt to re-order thinking the first attempt failed
+- Automated regression test added: `checkout/order-flow.cy.js` — "Checkout Stepper Steps"
+
+**Screenshots:**
+
+*Checkout stepper showing Step 3 "Order complete" in the UI:*
+![Checkout stepper context](../cypress/screenshots/record/bug-screenshots.cy.js/bug-003-checkout-stepper-context.png)
+
+*Step 3 — /order-confirmation page renders completely blank:*
+![Order complete blank page](../cypress/screenshots/record/bug-screenshots.cy.js/bug-003-order-complete-blank.png)
 
 ---
 
